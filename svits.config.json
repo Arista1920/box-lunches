@@ -1,0 +1,23 @@
+{
+  "name": "Arista Catering - Box Lunches",
+  "shortName": "Box Lunches",
+  "description": "Box Lunches specializes in fresh catering options like, healthy box lunches, breakfasts, party platters and more! Serving the Seattle WA area. Order online today!",
+  "author": {
+    "name": "Arista Catering",
+    "email": "",
+    "url": ""
+  },
+  "collections/example": [
+    {
+      "name": "posts",
+      "path": "src/pages/blog",
+      "url": "/blog"
+    }
+  ],
+  "hostname": "https://box-lunches.netlify.app",
+  "sitemapUrls": [
+  ],
+  "routifyRuntimeConfig": {
+    "useHash": false
+  }
+}
