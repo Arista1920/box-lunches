@@ -67,8 +67,8 @@
           <div
             style="background:{slide.bg}; background-size: cover; background-position: center;"
                    class="slide"
-                   in:hslide={{duration: 500}}
-                   out:hslide={{duration: 500}}
+                   in:hslide|local={{duration: 500}}
+                   out:hslide|local={{duration: 500}}
                    >
                    <div in:fly={{y: 100, duration: 500, delay: 400}}>
                      {slide.content}
