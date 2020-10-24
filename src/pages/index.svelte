@@ -12,13 +12,7 @@
 </script>
 
 <div class="flex w-full">
-  <div class="bg">
+  <div class="w-screen bg">
     <Carousel height="85vh"/>
   </div>
 </div>
-
-<style>
-  .bg {
-    width: 100%;
-  }
-</style>
