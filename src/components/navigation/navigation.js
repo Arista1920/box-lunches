@@ -5,9 +5,13 @@ export default [
     rel: 'prefetch',
   },
   {
-    separator: true,
     titulo: 'About',
     href: '/about',
+    rel: 'prefetch',
+  },
+  {
+    titulo: 'Contact',
+    href: '/contact',
     rel: 'prefetch',
   },
 ]

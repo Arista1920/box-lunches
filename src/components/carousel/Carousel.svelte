@@ -2,12 +2,17 @@
   import { onMount } from 'svelte'
   import { fly } from 'svelte/transition'
   import { hslide } from './hslide.js'
+  import { beforeUrlChange } from '@roxi/routify'
 
   let slides = [
-    { content: '1', bg: 'url(/images/bg.webp)' },
-    { content: '2', bg: 'url(https://bestof2019.johanronsse.be/images/albums/mac-miller-divine-feminine.jpg)' },
-    { content: '3', bg: 'url(https://bestof2019.johanronsse.be/images/albums/marc-martell-thunderbolt-and-lightning.jpg)' },
-    { content: '4', bg: 'orange' },
+    {
+      content: 'Don\'t eat less, just eat real.',
+      bg: 'url(/images/bg.webp)'
+    },
+    {
+      content: 'Fresh and delicious.',
+      bg: 'url(/images/bg.webp)'
+    },
   ]
 
   let cur = 0
@@ -19,14 +24,25 @@
 
   const clamp = (number, min, max) => Math.min(Math.max(number, min), max)
   const transition_args = {
-    duration: 200,
+    duration: 500,
   }
 
+  $beforeUrlChange(() => {
+    transition_args.duration = 0
+    return true
+  })
+
+  export let controls
+
   function prev(e) {
+    let i
     if (cur > 0) {
-      cur = clamp( --cur, 0, slides.length-1 )
+      i = clamp( --cur, 0, slides.length-1 )
     } else {
-      cur = slides.length-1
+      i = slides.length-1
+    }
+    if (slides[i] != null) {
+      cur = i
     }
   }
 
@@ -44,7 +60,7 @@
   })
   $: if (interval) interval();
 
-  const ARROW_LEFT = 37
+  /*const ARROW_LEFT = 37
   const ARROW_RIGHT = 39
   function handleShortcut(e) {
     if (e.keyCode === ARROW_LEFT ) {
@@ -53,37 +69,48 @@
     if (e.keyCode === ARROW_RIGHT ) {
       next()
     }
-  }
+  }*/
 
 </script>
 
-<svelte:window on:keyup={handleShortcut} />
+<!--svelte:window on:keyup={handleShortcut} /-->
 
 <div class="main">
   <div class="outer-wrapper" style="height: {height}">
-    <div class="inner-wrapper">
+    <div class="overflow-hidden inner-wrapper ">
       {#each slides as slide, id}
         {#if id === cur}
           <div
-            style="background:{slide.bg}; background-size: cover; background-position: center;"
-                   class="slide"
-                   in:hslide|local={{duration: 500}}
-                   out:hslide|local={{duration: 500}}
-                   >
-                   <div in:fly={{y: 100, duration: 500, delay: 400}}>
-                     {slide.content}
-                   </div>
+            in:hslide={transition_args}
+            out:hslide={transition_args}
+            class="slide"
+            style="
+              background:
+                linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), {slide.bg};
+              background-size: cover;
+              background-position: center;
+            "
+          >
+            <div
+              in:fly={{y: 100, duration: 500, delay: 400}}
+              out:fly|local={{y: -100, duration: 200}}
+              class="w-full p-6 m-auto text-6xl lg:w-7/10"
+            >
+            {slide.content}
+            </div>
           </div>
         {/if}
       {/each}
-      <div class="controls">
-        <button on:click="{()=>prev()}">
-                          &lt;
-        </button>
-        <button on:click="{()=>next()}">
-          &gt;
-        </button>
-      </div>
+      {#if controls}
+        <div class="controls">
+          <button on:click="{()=>prev()}">
+            &lt;
+          </button>
+          <button on:click="{()=>next()}">
+            &gt;
+          </button>
+        </div>
+      {/if}
     </div>
   </div>
 </div>
@@ -138,11 +165,8 @@
     flex: 1 0 auto;
     width: 100%;
     height: 100%;
-    background: red;
     align-items: center;
-    justify-content: center;
     display: flex;
-    text-align: center;
     font-weight: bold;
     font-size: 2rem;
     color: white;

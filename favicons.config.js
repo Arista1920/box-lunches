@@ -1,7 +1,7 @@
-const color = '#1c63f2'
+const color = '#008000'
 
 const iconsProps = {
-      background: color,
+      // background: color,
       offset: 5,
 }
 

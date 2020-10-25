@@ -15,6 +15,7 @@ export function hslide(node, {
   const border_left_width = parseFloat(style.borderLeftWidth)
   const border_right_width = parseFloat(style.borderRightWidth)
 
+
   return {
     delay,
     duration,
@@ -23,7 +24,7 @@ export function hslide(node, {
     `overflow: hidden;` +
     `opacity: ${t * opacity};` +
     `width: ${t * width}px;` +
-    `height: ${t * height}px;` +
+    // `height: ${t * height}px;` +
     `padding-left: ${t * padding_left}px;` +
     `padding-right: ${t * padding_right}px;` +
     `margin-left: ${t * margin_left}px;` +

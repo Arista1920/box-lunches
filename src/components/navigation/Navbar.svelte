@@ -9,11 +9,14 @@
   import Image from "../Image.svelte"
   import navigation from "./navigation"
   import { url, isActive } from '@roxi/routify/runtime'
+  import { isChangingPage } from '@roxi/routify'
 
   export let sidebar = false
   export let transparent = false
 
   let navbar
+
+  $: if (!$isChangingPage) sidebar = false;
 
   let y
 
@@ -22,21 +25,26 @@
 
   $: top = y <= $height || y === undefined
   $: isTransparent = transparent && top
-  $: if (navbar) {
-    $height = navbar.offsetHeight
-  }
+  $: $height = navbar ? navbar.offsetHeight : 0
 </script>
 
 <svelte:window bind:scrollY={y}/>
 
-<header class="fixed z-10 w-full glass" class:shadow={!top} class:bg={top}>
+<header
+  class="fixed z-10 w-full duration-200 {!isTransparent && top ? 'bg-white' : ''}"
+  class:glass={!top}
+  class:shadow={!top}
+>
   <Sidebar bind:open={sidebar}/>
   <div class="flex items-center justify-between p-4 m-auto duration-200 {top ? 'lg:w-7/10' : 'lg:w-8/10'}" bind:this={navbar}>
     <nav class="flex">
-      <a href="/" title="Home">
+      <a href="/" title="Home" class="duration-100 rounded-xl { isTransparent ? `${sidebar ? 'bg-white' : 'glass'} shadow-md` : '' }" class:p-4={top}>
         <Image
-          src="logo.jpg"
-          class="{ top ? 'h-24' : 'h-16' } duration-200 lg:transform lg:hover:scale-110 lg:hover:-rotate-12"
+          src="logo.png"
+          class="
+            { top ? 'h-24 w-24' : 'h-16 w-16' }
+            duration-200 lg:transform lg:hover:scale-110 lg:hover:-rotate-12
+          "
           alt="logo"
         />
       </a>
@@ -45,7 +53,11 @@
     <div class="lg:hidden">
       <Hamburger bind:open={sidebar} white={isTransparent}/>
     </div>
-    <div class="flex hidden -m-4 text-lg lg:block">
+    <div
+      class="flex hidden px-2 py-6 -m-4 text-lg lg:block duration-100 rounded-xl glass"
+      class:glass={isTransparent}
+      class:shadow-md={isTransparent}
+    >
       {#each navigation as { href, titulo }}
         <a
           href={$url(href)}
@@ -64,11 +76,7 @@
 
   .glass {
     background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: saturate(180%) blur(10px);
-  }
-
-  .bg {
-    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: saturate(200%) blur(10px);
   }
 
   .nav-link {
@@ -81,8 +89,16 @@
     border-bottom: 2px solid green;
   }
 
+  .transparent.selected-nav {
+    border-bottom: 2px solid white;
+  }
+
   .nav-link:hover {
     @extend .selected-nav;
+  }
+
+  .transparent.nav-link:hover {
+    @extend .transparent.selected-nav;
   }
 
   /*

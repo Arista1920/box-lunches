@@ -11,8 +11,9 @@
   metatags.title = svitsConfig.name
 </script>
 
-<div class="flex w-full">
-  <div class="w-screen bg">
-    <Carousel height="85vh"/>
+<div class="flex w-full min-h-screen">
+  <div class="w-screen">
+    <Carousel height="100vh"/>
+    <div class="h-screen"></div>
   </div>
 </div>
