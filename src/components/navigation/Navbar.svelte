@@ -38,7 +38,7 @@
   <Sidebar bind:open={sidebar}/>
   <div class="flex items-center justify-between p-4 m-auto duration-200 {top ? 'lg:w-7/10' : 'lg:w-8/10'}" bind:this={navbar}>
     <nav class="flex">
-      <a href="/" title="Home" class="duration-100 rounded-xl { isTransparent ? `${sidebar ? 'bg-white' : 'glass'} shadow-md` : '' }" class:p-4={top}>
+      <a href="/" title="Home" class="duration-100 rounded-xl">
         <Image
           src="logo.png"
           class="
