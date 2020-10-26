@@ -11,7 +11,6 @@
   import { url, isActive } from '@roxi/routify/runtime'
   import { isChangingPage } from '@roxi/routify'
   import { preferences } from '../../stores/preferences'
-  // import Icon, { moon } from '../../icon'
 
   export let sidebar = false
   export let transparent = false
@@ -33,9 +32,10 @@
 <svelte:window bind:scrollY={y}/>
 
 <header
-  class="fixed z-10 w-full duration-200 {!isTransparent && top ? 'bg' : ''}"
-  class:glass={!top}
-  class:shadow-md={!top}
+  class="
+    fixed z-10 w-full duration-200 {!isTransparent && top ? 'bg' : ''}
+    {!top ? 'shadow-md glass' : ''}
+  "
 >
   <Sidebar bind:open={sidebar}/>
   <div class="flex items-center justify-between p-4 m-auto duration-200 {top ? 'lg:w-7/10' : 'lg:w-8/10'}" bind:this={navbar}>
@@ -56,9 +56,10 @@
       <Hamburger bind:open={sidebar} white={isTransparent}/>
     </div>
     <div
-      class="items-center hidden px-2 py-6 -mx-4 text-lg lg:flex duration-100 rounded-xl glass font-title"
-      class:glass={isTransparent}
-      class:shadow-md={isTransparent}
+      class="
+        items-center hidden px-2 py-6 -mx-4 text-lg lg:flex duration-100 rounded-xl font-title
+        {isTransparent ? 'shadow-md glass' : ''}
+      "
     >
       {#each navigation as { href, titulo }}
         <a
