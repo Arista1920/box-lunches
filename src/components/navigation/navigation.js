@@ -2,16 +2,17 @@ export default [
   {
     titulo: 'Home',
     href: '/index',
-    rel: 'prefetch',
+  },
+  {
+    titulo: 'Menu',
+    href: '/menu',
   },
   {
     titulo: 'About',
     href: '/about',
-    rel: 'prefetch',
   },
   {
-    titulo: 'Contact',
-    href: '/contact',
-    rel: 'prefetch',
+    titulo: 'Request notes',
+    href: '/request',
   },
 ]

@@ -6,7 +6,7 @@
 
   let slides = [
     {
-      content: 'Don\'t eat less, just eat real.',
+      content: 'Don\'t eat less,\njust eat real.',
       bg: 'url(/images/bg.webp)'
     },
     {
@@ -91,13 +91,25 @@
               background-position: center;
             "
           >
-            <div
+            <h1
               in:fly={{y: 100, duration: 500, delay: 400}}
               out:fly|local={{y: -100, duration: 200}}
-              class="w-full p-6 m-auto text-6xl lg:w-7/10"
-            >
-            {slide.content}
-            </div>
+              class="w-full p-6 m-auto text-5xl md:text-6xl lg:w-7/10"
+              >
+              {#each slide.content as char, i}
+                {#if char === '\n'}
+                  <br/>
+                {:else}
+                  <span
+                    in:fly={{
+                      y: 100,
+                      delay: i * (1000 / slide.content.length),
+                      duration: 1000
+                    }}
+                  >{char}</span>
+                {/if}
+              {/each}
+            </h1>
           </div>
         {/if}
       {/each}

@@ -34,6 +34,10 @@
           transform: rotate(3deg) translate(0px, -4px);
 }
 
+.dark #nprogress .bar {
+  box-shadow: 0 0 10px white, 0 0 5px white;
+}
+
 /* Remove these to get rid of the spinner */
 #nprogress .spinner {
   display: block;

@@ -1,4 +1,5 @@
 import './index.css'
+import './icons.css'
 import './nprogress.css'
 import 'prismjs-tomorrow-theme/prism-tomorrow.css'
 import App from './App.svelte'
@@ -10,7 +11,7 @@ const app = new App({
 
 wf.load({
   google: {
-    families: ['Roboto']
+    families: ['Roboto', 'Staatliches']
   }
 })
 

@@ -10,6 +10,8 @@
   import navigation from "./navigation"
   import { url, isActive } from '@roxi/routify/runtime'
   import { isChangingPage } from '@roxi/routify'
+  import { preferences } from '../../stores/preferences'
+  // import Icon, { moon } from '../../icon'
 
   export let sidebar = false
   export let transparent = false
@@ -31,9 +33,9 @@
 <svelte:window bind:scrollY={y}/>
 
 <header
-  class="fixed z-10 w-full duration-200 {!isTransparent && top ? 'bg-white' : ''}"
+  class="fixed z-10 w-full duration-200 {!isTransparent && top ? 'bg' : ''}"
   class:glass={!top}
-  class:shadow={!top}
+  class:shadow-md={!top}
 >
   <Sidebar bind:open={sidebar}/>
   <div class="flex items-center justify-between p-4 m-auto duration-200 {top ? 'lg:w-7/10' : 'lg:w-8/10'}" bind:this={navbar}>
@@ -54,17 +56,23 @@
       <Hamburger bind:open={sidebar} white={isTransparent}/>
     </div>
     <div
-      class="flex hidden px-2 py-6 -m-4 text-lg lg:block duration-100 rounded-xl glass"
+      class="items-center hidden px-2 py-6 -mx-4 text-lg lg:flex duration-100 rounded-xl glass font-title"
       class:glass={isTransparent}
       class:shadow-md={isTransparent}
     >
       {#each navigation as { href, titulo }}
         <a
           href={$url(href)}
-          class="m-4 uppercase nav-link"
+          class="mx-4 uppercase nav-link"
           class:selected-nav={$isActive(href)}>{titulo}</a
         >
       {/each}
+      <div class="h-4 mx-2 border-l border-black dark:border-white duration-800"></div>
+      <span
+        on:click={() => $preferences.darkMode = !$preferences.darkMode}
+        class="mx-4 uppercase cursor-pointer nav-link i jam:{$preferences.darkMode ? 'sun' : 'moon'}"
+        ></span
+      >
     </div>
   </div>
 </header>
@@ -75,17 +83,28 @@
   }
 
   .glass {
+    transition: background-color 0.2s ease-in-out;
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: saturate(200%) blur(10px);
   }
 
+  :global(.dark .bg) {
+    background-color: rgba(10, 10, 10, 1);
+  }
+
+  :global(.dark .glass) {
+    background-color: rgba(10, 10, 10, 0.9);
+    backdrop-filter: saturate(200%) blur(10px);
+  }
+
   .nav-link {
-    @apply pb-1;
-    @apply duration-200;
+    transition: border 0.2s ease-in-out, color 0s ease-in-out;
+    margin-bottom: -2px;
     border-bottom: 2px solid transparent;
   }
 
   .selected-nav {
+    margin-bottom: -2px;
     border-bottom: 2px solid green;
   }
 

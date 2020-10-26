@@ -47,6 +47,10 @@ module.exports = {
         'xxl': {'min': '1480px'}
       },
       fontFamily: {
+        'title': [
+          'Staatliches',
+          ...defaultTheme.fontFamily.sans,
+        ],
         sans: [
           'Roboto',
           ...defaultTheme.fontFamily.sans,
