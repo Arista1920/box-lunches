@@ -6,14 +6,15 @@
 
   export let open = false
 
-  $: color = white ? 'white' : 'black dark:white'
+  $: color = white ? 'white' : 'black'
   $: hoverColor = white ? 'gray-200' : 'gray-600'
 </script>
 
 <button
     class="
-      {!open ? `text-${color} hover:text-${hoverColor}` : 'text-black hover:text-gray-600 dark:text-white'}
+      {!open ? `text-${color} hover:text-${hoverColor}` : 'text-black hover:text-gray-600'}
       cursor-pointer mr-4 border-none focus:outline-none z-10
+      dark:text-white
     "
      class:open on:click={() => open = !open}
 >
