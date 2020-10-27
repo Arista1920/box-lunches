@@ -2,6 +2,7 @@
   import svitsConfig from '../../svits.config'
   import { preferences } from '../stores/preferences'
   import { metatags } from '@roxi/routify'
+  import Carousel from '../components/carousel/Carousel.svelte'
 
   // import { getCollection } from '../collections'
 
@@ -10,8 +11,9 @@
   metatags.title = svitsConfig.name
 </script>
 
-<div class="flex w-full">
-  <h1 class="m-auto text-9xl">
-    WIP
-  </h1>
+<div class="flex w-full min-h-screen">
+  <div class="w-screen">
+    <Carousel height="100vh"/>
+    <div class="h-screen"></div>
+  </div>
 </div>

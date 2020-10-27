@@ -89,8 +89,12 @@
     backdrop-filter: saturate(200%) blur(10px);
   }
 
+  .bg {
+    background-color: white;
+  }
+
   :global(.dark .bg) {
-    background-color: rgba(10, 10, 10, 1);
+    background-color: #222;
   }
 
   :global(.dark .glass) {

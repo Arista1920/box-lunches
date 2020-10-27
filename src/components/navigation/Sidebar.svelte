@@ -26,7 +26,7 @@
     class:open
     transition:fly={{ y: -100, duration: 200 }}
   >
-    <div class="flex flex-col justify-between h-full p-12 pt-20 text-xl">
+    <div class="flex flex-col h-full p-12 pt-20 text-xl">
       <div>
         <!--span class={separatorClass}></span-->
         {#each elements as el}
@@ -38,7 +38,7 @@
           >
         {/each}
       </div>
-      <div class="flex justify-end -m-4 text-xl">
+      <div class="-m-4 buttons">
         <span
           on:click={() => $preferences.darkMode = !$preferences.darkMode}
           class="mx-4 uppercase cursor-pointer nav-link i jam:{$preferences.darkMode ? 'sun' : 'moon'}"
@@ -53,8 +53,14 @@
 
 <style>
   aside {
-    transition: right 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    @apply text-xl;
   }
 
   :global(.dark aside) {
