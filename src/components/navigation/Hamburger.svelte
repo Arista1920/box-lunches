@@ -11,12 +11,14 @@
 </script>
 
 <button
-    class="
-      {!open ? `text-${color} hover:text-${hoverColor}` : 'text-black hover:text-gray-600'}
-      cursor-pointer mr-4 border-none focus:outline-none z-10
-      dark:text-white
-    "
-     class:open on:click={() => open = !open}
+  aria-label="Menu"
+  title="Menu"
+  class="
+    {!open ? `text-${color} hover:text-${hoverColor}` : 'text-black hover:text-gray-600'}
+    cursor-pointer mr-4 border-none focus:outline-none z-10
+    dark:text-white
+  "
+  class:open on:click={() => open = !open}
 >
   <svg width=32 height=24>
     <line id="top" x1=0 y1=2  x2=32 y2=2/>
