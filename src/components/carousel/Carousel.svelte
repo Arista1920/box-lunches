@@ -4,14 +4,18 @@
   import { hslide } from './hslide.js'
   import { beforeUrlChange } from '@roxi/routify'
 
-  let slides = [
+  export let slides = [
     {
-      content: 'Don\'t eat less,\njust eat real.',
-      bg: 'url(/images/bg.webp)'
+      content: '1',
+      bg: 'linear-gradient(yellow, yellow)',
     },
     {
-      content: 'Fresh and delicious.',
-      bg: 'url(/images/bg.webp)'
+      content: '2',
+      bg: 'linear-gradient(blue, blue)',
+    },
+    {
+      content: '3',
+      bg: 'linear-gradient(red, red)',
     },
   ]
 
@@ -75,8 +79,8 @@
 
 <!--svelte:window on:keyup={handleShortcut} /-->
 
-<div class="main">
-  <div class="outer-wrapper" style="height: {height}">
+<div class="overflow-hidden main">
+  <div class="overflow-hidden outer-wrapper" style="height: {height}">
     <div class="overflow-hidden inner-wrapper ">
       {#each slides as slide, id}
         {#if id === cur}

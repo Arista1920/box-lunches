@@ -34,8 +34,9 @@
 <header
   class="
     fixed z-10 w-full duration-200 {!isTransparent && top ? 'bg' : ''}
-    {!top ? 'shadow-md glass' : ''}
   "
+  class:shadow-md={y > 0 && !isTransparent}
+  class:glass={!top}
 >
   <Sidebar bind:open={sidebar}/>
   <div class="flex items-center justify-between p-4 m-auto duration-200 {top ? 'lg:w-7/10' : 'lg:w-8/10'}" bind:this={navbar}>
