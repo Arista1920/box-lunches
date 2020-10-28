@@ -86,7 +86,7 @@
             class="slide"
             style="
               background:
-                linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), {slide.bg};
+                linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), {slide.bg}, linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7));
               background-size: cover;
               background-position: center;
             "
