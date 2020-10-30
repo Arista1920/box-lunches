@@ -12,7 +12,7 @@ export default [
     href: '/about',
   },
   {
-    titulo: 'Request notes',
+    titulo: 'Request quotes',
     href: '/request',
   },
 ]

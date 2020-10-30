@@ -34,7 +34,7 @@
       <h1
         class="flex flex-col m-auto text-center -z-10"
       ><span
-          class="-mb-8 text-5xl leading-tight text-gray-200 select-none sm:-mb-12 -z-10 dark:opacity-25 sm:text-8xl dark:text-gray-700 font-handwritten"
+          class="-mb-8 text-5xl leading-tight text-gray-200 select-none sm:-mb-12 -z-10 dark:opacity-25 sm:text-8xl dark:text-gray-500 font-handwritten"
           >Arista Catering</span
         >
         <span
@@ -46,7 +46,7 @@
       <p class="my-6 text-lg text-center text-gray-500 sm:text-xl">
           We welcome you to a delicious feast of exquisite dishes in Box Lunches. With a wide range of options to choose from, we guarantee you a sumptuous feast experience with our service!
       </p>
-      <Image src="separator.png" alt="separator" class="m-auto pointer-events-none select-none"/>
+      <Image src="separator{dark ? '-dark' : ''}.png" alt="separator" class="m-auto pointer-events-none select-none"/>
     </div>
   </div>
 </div>
