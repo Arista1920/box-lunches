@@ -11,7 +11,7 @@ const app = new App({
 
 wf.load({
   google: {
-    families: ['Roboto', 'Staatliches']
+    families: ['Roboto', 'Staatliches', 'Kaushan+Script', 'Source+Sans+Pro']
   }
 })
 

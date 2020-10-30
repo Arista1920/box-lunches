@@ -45,7 +45,7 @@
         <Image
           src="logo.png"
           class="
-            { top ? 'h-24 w-24' : 'h-16 w-16' }
+            { top ? 'h-16 w-16 sm:h-24 sm:w-24' : 'h-16 w-16' }
             duration-200 lg:transform lg:hover:scale-110 lg:hover:-rotate-12
           "
           alt="logo"

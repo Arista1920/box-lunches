@@ -1,61 +1,61 @@
 @font-face {
-  font-family: "Iconify Explorer Font";
-  src: url("/icons/iconfont.eot");
-  src: url("/icons/iconfont.eot") format("embedded-opentype"),
-       url("/icons/iconfont.ttf") format("truetype"),
-       url("/icons/iconfont.woff") format("woff"),
-       url("/icons/iconfont.woff2") format("woff2"),
-       url("/icons/iconfont.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
+	font-family: "Iconify Explorer Font";
+	src: url("/icons/iconfont.eot");
+	src: url("/icons/iconfont.eot") format("embedded-opentype"),
+		url("/icons/iconfont.ttf") format("truetype"),
+		url("/icons/iconfont.woff") format("woff"),
+		url("/icons/iconfont.woff2") format("woff2"),
+		url("/icons/iconfont.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
 
 .i {
-  font-family: "Iconify Explorer Font" !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: "Iconify Explorer Font" !important;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 .i.jam\:chevron-down:before {
-content: "\e001";
+	content: "\e001";
 }
 
 .i.jam\:chevron-left:before {
-content: "\e002";
+	content: "\e002";
 }
 
 .i.jam\:chevron-right:before {
-content: "\e003";
+	content: "\e003";
 }
 
 .i.jam\:chevron-up:before {
-content: "\e004";
+	content: "\e004";
 }
 
 .i.jam\:facebook:before {
-content: "\e005";
+	content: "\e005";
 }
 
 .i.jam\:heart:before {
-content: "\e006";
+	content: "\e006";
 }
 
 .i.jam\:heart-f:before {
-content: "\e007";
+	content: "\e007";
 }
 
 .i.jam\:instagram:before {
-content: "\e008";
+	content: "\e008";
 }
 
 .i.jam\:moon:before {
-content: "\e009";
+	content: "\e009";
 }
 
 .i.jam\:sun:before {
-content: "\e00a";
+	content: "\e00a";
 }
 
 .i.jam\:youtube:before {
-content: "\e00b";
+	content: "\e00b";
 }

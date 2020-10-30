@@ -18,3 +18,16 @@ pre, code {
 .dark pre, .dark code {
 	@apply text-gray-400;
 }
+
+.content {
+	@apply px-6;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@screen lg {
+	.content {
+		width: 80%;
+	}
+}

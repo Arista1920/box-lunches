@@ -68,8 +68,12 @@ module.exports = {
           'Staatliches',
           ...defaultTheme.fontFamily.sans,
         ],
+        'handwritten': [
+          'Kaushan Script',
+          ...defaultTheme.fontFamily.sans,
+        ],
         sans: [
-          'Roboto',
+          'Source Sans Pro',
           ...defaultTheme.fontFamily.sans,
         ],
         mono: [
