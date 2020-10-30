@@ -60,11 +60,11 @@ const getUrls = (c, dir, md) => {
   return urls
 }
 
-const isFile = (name, md) => (md ? /\.md/ : /\.js/).test(name) && name !== `index.${md ? 'md' : 'json'}`
+const isFile = (name, md) => (md ? /\.md/ : /\.json/).test(name) && name !== `index.${md ? 'md' : 'json'}`
 
 const readContent = (path, md) => {
   const buffer = fs.readFileSync(path)
-  const data = md ? matter(buffer).data : JSON.parse(path)
+  const data = md ? matter(buffer).data : JSON.parse(buffer)
   return { ...data }
 }
 

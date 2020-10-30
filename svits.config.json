@@ -7,7 +7,7 @@
     "email": "",
     "url": ""
   },
-  "collections/example": [
+  "collections": [
     {
       "name": "posts",
       "path": "src/pages/blog",
