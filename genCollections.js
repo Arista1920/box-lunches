@@ -16,8 +16,9 @@ function init() {
       if (err) {
         return
       }
+      const md = !!c.markdown
       names.push(c.name)
-      const urls = getUrls(c, dir)
+      const urls = getUrls(c, dir, md)
       const data = JSON.stringify(JSON.parse(JSON.stringify(urls)), null, 2)
       fs.writeFileSync(path.join(cPath, `${c.name}.json`), data)
       fs.writeFileSync(path.join(cPath, 'index.js'), getIndex(names))
@@ -44,25 +45,26 @@ const getIndex = names => {
   return imports(names) + exports(names)
 }
 
-const getUrls = (c, dir) => {
+const getUrls = (c, dir, md) => {
   let urls = []
+  let ext = md ? '.md' : '.json'
   const files = dir
-    .filter(isFile)
+    .filter(n => isFile(n, md))
     .map(d => ({
-      url: path.join(c.url, d).split('.md').join(''),
+      url: path.join(c.url, d).split(ext).join(''),
       path: path.resolve(__dirname, c.path, d)
     }))
   files.forEach(f => {
-    urls.push({url: f.url, ...readContent(f.path)})
+    urls.push({url: f.url, ...readContent(f.path, md)})
   })
   return urls
 }
 
-const isFile = name => /\.md/.test(name) && name !== 'index.md'
+const isFile = (name, md) => (md ? /\.md/ : /\.js/).test(name) && name !== `index.${md ? 'md' : 'json'}`
 
-const readContent = path => {
+const readContent = (path, md) => {
   const buffer = fs.readFileSync(path)
-  const { data } = matter(buffer)
+  const data = md ? matter(buffer).data : JSON.parse(path)
   return { ...data }
 }
 

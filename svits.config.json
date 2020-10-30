@@ -11,7 +11,13 @@
     {
       "name": "posts",
       "path": "src/pages/blog",
-      "url": "/blog"
+      "url": "/blog",
+      "markdown": true
+    },
+    {
+      "name": "menu",
+      "path": "src/menu",
+      "url": "/menu"
     }
   ],
   "hostname": "https://box-lunches.netlify.app",
