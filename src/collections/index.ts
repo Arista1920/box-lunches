@@ -28,6 +28,11 @@ export class Collection<T> {
     return this
   }
 
+  filter(callback: any): this {
+    this.elements = this.elements.filter(callback)
+    return this
+  }
+
   sort(orderOptions: OrderOptions): this {
     this.elements = this.elements.sort((a: any, b: any) => {
       let aa: any = a[orderOptions.field]
