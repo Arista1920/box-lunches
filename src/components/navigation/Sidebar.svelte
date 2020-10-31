@@ -39,11 +39,22 @@
         {/each}
       </div>
       <div class="-m-4 buttons">
-        <span
+        <button
+          title="Change theme"
           on:click={() => $preferences.darkMode = !$preferences.darkMode}
-          class="mx-4 uppercase cursor-pointer nav-link i jam:{$preferences.darkMode ? 'sun' : 'moon'}"
-          ></span
+          class="focus:outline-none mx-4 uppercase cursor-pointer nav-link i jam:{$preferences.darkMode ? 'sun' : 'moon'}"
+          ></button
         >
+        <button
+          title="Open cart"
+          class="flex items-center mx-4 cursor-pointer focus:outline-none nav-link"
+        >
+          <span
+            class="mr-2 i jam:shopping-cart"
+            ></span
+          >
+          <span class="text-sm">0</span>
+        </button>
       </div>
     </div>
     <nav class="p-12 pt-20 -my-4 text-xl">

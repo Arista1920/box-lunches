@@ -16,6 +16,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 .i.jam\:chevron-down:before {
 	content: "\e001";
 }
@@ -52,10 +53,18 @@
 	content: "\e009";
 }
 
-.i.jam\:sun:before {
+.i.jam\:search:before {
 	content: "\e00a";
 }
 
-.i.jam\:youtube:before {
+.i.jam\:shopping-cart:before {
 	content: "\e00b";
+}
+
+.i.jam\:sun:before {
+	content: "\e00c";
+}
+
+.i.jam\:youtube:before {
+	content: "\e00d";
 }

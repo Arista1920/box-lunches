@@ -8,7 +8,7 @@
 >
   {#if first}
     <span
-      class="-mb-8 text-5xl leading-tight text-gray-200 select-none sm:-mb-12 -z-10 dark:opacity-25 sm:text-8xl dark:text-gray-500 font-handwritten"
+      class="-mb-8 text-5xl leading-tight text-gray-300 select-none sm:-mb-12 -z-10 dark:opacity-25 sm:text-8xl dark:text-gray-500 font-handwritten"
       >{first}</span
     >
   {/if}
