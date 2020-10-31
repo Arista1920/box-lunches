@@ -4,6 +4,7 @@
   import { metatags } from '@roxi/routify'
   import Carousel from '../components/carousel/Carousel.svelte'
   import Image from '../components/Image.svelte'
+  import Title from '../components/Title.svelte'
 
   // import { getCollection } from '../collections'
 
@@ -31,18 +32,7 @@
   <div class="w-screen">
     <Carousel height="75vh" slides={slides} waves/>
     <div class="py-16 content">
-      <h1
-        class="flex flex-col m-auto text-center -z-10"
-      ><span
-          class="-mb-8 text-5xl leading-tight text-gray-200 select-none sm:-mb-12 -z-10 dark:opacity-25 sm:text-8xl dark:text-gray-500 font-handwritten"
-          >Arista Catering</span
-        >
-        <span
-          class="text-4xl text-center text-gray-700 sm:text-6xl dark:text-gray-500 font-title"
-          >Box Lunches Seattle</span
-        >
-        <span class="w-32 m-auto bg-green-500" style="height: 2px"></span></h1
-      >
+      <Title first="Arista Catering" second="Box Lunches Seattle"/>
       <p class="my-6 text-lg text-center text-gray-500 sm:text-xl">
           We welcome you to a delicious feast of exquisite dishes in Box Lunches. With a wide range of options to choose from, we guarantee you a sumptuous feast experience with our service!
       </p>

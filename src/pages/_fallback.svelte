@@ -17,10 +17,6 @@
   }
 
   .e404 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
   }
 </style>
@@ -29,10 +25,10 @@
   <meta name="prerender-status-code" content="404">
 </svelte:head>
 
-<div class="relative">
-  <div class="overflow-hidden e404">
+<div class="flex w-full">
+  <div class="m-auto overflow-hidden e404">
     {#if visible}
-      <div class="huge font-title" in:fly={{y: -20, duration: 800}}>404</div>
+      <div class="leading-none huge font-title" in:fly={{y: -20, duration: 800}}>404</div>
     {/if}
     <div class="flex flex-col items-center big">
       Page not found.
