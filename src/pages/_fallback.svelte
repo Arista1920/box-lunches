@@ -26,7 +26,7 @@
 </svelte:head>
 
 <div class="flex w-full">
-  <div class="m-auto overflow-hidden e404">
+  <div class="py-16 m-auto overflow-hidden e404">
     {#if visible}
       <div class="leading-none huge font-title" in:fly={{y: -20, duration: 800}}>404</div>
     {/if}

@@ -1,4 +1,5 @@
 <script>
+  import { transparent } from '../components/navigation/Navbar.svelte'
   import svitsConfig from '../../svits.config'
   import { preferences } from '../stores/preferences'
   import { metatags } from '@roxi/routify'

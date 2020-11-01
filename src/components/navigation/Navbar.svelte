@@ -1,6 +1,7 @@
 <script context="module">
   import { writable } from 'svelte/store'
   export const height = writable(0)
+  export const transparent = writable(false)
 </script>
 
 <script>
@@ -13,7 +14,6 @@
   import { preferences } from '../../stores/preferences'
 
   export let sidebar = false
-  export let transparent = false
 
   let navbar
 
@@ -21,11 +21,11 @@
 
   let y
 
-  let isTransparent = transparent
+  let isTransparent = $transparent
   let top = true
 
   $: top = y <= $height || y === undefined
-  $: isTransparent = transparent && top
+  $: isTransparent = $transparent && top
   $: $height = navbar ? navbar.offsetHeight : 0
 </script>
 
@@ -122,7 +122,7 @@
 
   .selected-nav {
     margin-bottom: -2px;
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid #0E9F6E;
   }
 
   .transparent.selected-nav {
