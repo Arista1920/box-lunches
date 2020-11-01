@@ -123,6 +123,10 @@ module.exports = {
           rule: 'focus:not(:active)',
         },
         {
+          name: 'hover-not-focus',
+          rule: 'hover:not(:focus)',
+        },
+        {
           name: 'not-first',
           css: 'not(:first-child)',
         },
