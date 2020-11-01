@@ -33,8 +33,19 @@
   <div class="py-12 content">
     <Title first="Arista Catering" second="Box Lunches Seattle"/>
     <p class="my-6 text-lg text-center text-gray-500 sm:text-xl">
-        We welcome you to a delicious feast of exquisite dishes in Box Lunches. With a wide range of options to choose from, we guarantee you a sumptuous feast experience with our service!
+    We welcome you to a delicious feast of exquisite dishes in Box Lunches. With a wide range of options to choose from, we guarantee you a sumptuous feast experience with our service!
     </p>
     <Image src="separator{dark ? '-dark' : ''}.png" alt="separator" class="m-auto pointer-events-none select-none"/>
   </div>
+
+  <!--button class="snipcart-add-item"
+    data-item-id="starry-night"
+    data-item-price="79.99"
+    data-item-url="/paintings/starry-night"
+    data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+    data-item-image="/assets/images/starry-night.jpg"
+    data-item-name="The Starry Night"
+    data-item-quantity=3>
+    Add to cart
+  </button-->
 </div>

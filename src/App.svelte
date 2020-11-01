@@ -53,6 +53,18 @@
   }
 </script>
 
+<svelte:head>
+  <script async src="https://cdn.snipcart.com/themes/v3.0.24/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.24/default/snipcart.css" />
+</svelte:head>
+
 <OfflineBanner/>
 <BannerUpdate/>
 <Router {routes} config={{ ...svitsConfig?.routifyRuntimeConfig }} />
+
+<div
+  hidden
+  id="snipcart"
+  data-api-key="OTM1ODBiOTAtMDdhYy00NzVmLWJkMGUtYjZmNTgwODVlYTYxNjM3Mzk2ODgxNzczODQxNjUx"
+  ></div
+>

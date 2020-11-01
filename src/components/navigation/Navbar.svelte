@@ -78,13 +78,13 @@
       >
       <button
         title="Open cart"
-        class="flex items-center mx-4 cursor-pointer focus:outline-none nav-link"
+        class="flex items-center mx-4 cursor-pointer focus:outline-none nav-link snipcart-checkout"
       >
         <span
           class="mr-2 i jam:shopping-cart"
           ></span
         >
-        <span class="text-sm">0</span>
+        <span class="text-sm snipcart-items-count"></span>
       </button>
     </div>
   </div>
