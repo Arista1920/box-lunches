@@ -3,6 +3,7 @@
   import elements from './navigation'
   import { url, isActive } from '@roxi/routify/runtime'
   import { preferences } from '../../stores/preferences'
+  import { count, loaded } from '../../stores/snipcart'
   export let open = true
 
   let inside
@@ -38,7 +39,7 @@
           >
         {/each}
       </div>
-      <div class="-m-4 buttons">
+      <div class="pt-4 -m-4 buttons">
         <button
           title="Change theme"
           on:click={() => $preferences.darkMode = !$preferences.darkMode}
@@ -47,13 +48,18 @@
         >
         <button
           title="Open cart"
-          class="flex items-center mx-4 cursor-pointer focus:outline-none nav-link snipcart-checkout"
+          class="flex items-center mx-4 focus:outline-none nav-link"
+          class:nav-link={$loaded}
+          class:snipcart-checkout={$loaded}
         >
           <span
-            class="mr-2 i jam:shopping-cart"
+            class="i jam:{$loaded ? 'shopping-cart' : 'hourglass text-gray-300 dark:text-gray-700 cursor-not-allowed'}"
+            class:mr-2={$loaded}
             ></span
           >
-          <span class="text-sm snipcart-items-count"></span>
+          {#if $loaded}
+          <span class="text-sm">{$count}</span>
+          {/if}
         </button>
       </div>
     </div>

@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="google-site-verification" content="8_I-ErNz6ChamSv_UnMpmD_N8QjGt1XEmUJD9pvJYtk" />
+		<link href="https://cdn.snipcart.com/themes/v3.0.24/default/snipcart.js" rel="preload"/>
 		<script src="https://cdn.snipcart.com/themes/v3.0.24/default/snipcart.js"></script>
 		<!-- inject:favicons -->
 		<!-- endinject -->
@@ -13,10 +14,12 @@
 	</head>
 
 	<body class="antialiased dark:text-white">
+		<div id="app"></div>
 		<script type="module" src="/src/index.ts"></script>
 		<div
 			hidden
 			id="snipcart"
+			class="z-50"
 			data-api-key="OTM1ODBiOTAtMDdhYy00NzVmLWJkMGUtYjZmNTgwODVlYTYxNjM3Mzk2ODgxNzczODQxNjUx"
 			></div
 		>

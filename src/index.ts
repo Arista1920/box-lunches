@@ -6,7 +6,7 @@ import App from './App.svelte'
 import wf from 'webfontloader'
 
 const app = new App({
-  target: document.body,
+  target: document.getElementById('app'),
 })
 
 wf.load({
