@@ -15,11 +15,11 @@ function init() {
   cfg.collections.forEach(c => {
     const p = path.resolve(__dirname, c.path)
     names.push(c.name)
-    const urls = []
+    let urls = []
     if (fs.existsSync(p)) {
       const dir = fs.readdirSync(p)
       const md = !!c.markdown
-      urls.push(getUrls(c, dir, md))
+      urls = getUrls(c, dir, md)
     }
     const data = JSON.stringify(JSON.parse(JSON.stringify(urls)), null, 2)
     fs.writeFileSync(path.join(cPath, `${c.name}.json`), data)
