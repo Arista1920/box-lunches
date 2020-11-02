@@ -12,6 +12,7 @@
   <Image src={m.thumbnail} alt={m.title} class="object-cover w-full h-64 rounded-tl-2xl rounded-tr-2xl" />
   <div class="flex flex-col w-full p-4">
     <h2 class="text-xl text-gray-700 dark:text-gray-500 font-title">{m.title}</h2>
+    <p class="text-lg text-gray-700 dark:text-gray-500 font-title">${m.price}</p>
     <div class="flex mt-2 -mx-2 text-white">
       <a
         href={$url(m.url, { category: m.type })}
