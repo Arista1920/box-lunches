@@ -55,9 +55,28 @@ const getUrls = (c, dir, md) => {
       path: path.resolve(__dirname, c.path, d)
     }))
   files.forEach(f => {
-    urls.push({url: f.url, ...readContent(f.path, md)})
+    const data = readContent(f.path, md)
+    let params = {}
+    if (c.params) {
+      Object.keys(c.params).map(k => {
+        params[k] = data[c.params[k]]
+      })
+    }
+    urls.push({url: c.params ? parseUrl(f.url, params) : f.url, ...data})
   })
   return urls
+}
+
+const parseUrl = (url, expects) => {
+  const slices = new String(url).split('/')
+  const replaced = slices.map(s => {
+    if (s[0] === ':') {
+      const extract = s.slice(1, s.length)
+      return expects[extract]
+    }
+    return s
+  })
+  return replaced.join('/')
 }
 
 const isFile = (name, md) => (md ? /\.md/ : /\.json/).test(name) && name !== `index.${md ? 'md' : 'json'}`

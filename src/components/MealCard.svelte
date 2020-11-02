@@ -23,9 +23,9 @@
         title="Add to card"
         style="border-width: 2px"
         class="flex items-center justify-center w-1/2 py-2 mx-2 text-green-500 border border-green-500 snipcart-add-item duration-200 hover:bg-green-500 hover:text-white rounded-md font-title"
-        data-item-id={$url(m.url, { category: m.type })}
+        data-item-id={$url(m.url)}
         data-item-price={m.price}
-        data-item-url={`${svitsConfig.hostname}${$url(m.url, { category: m.type })}`}
+        data-item-url={`${svitsConfig.hostname}${$url(m.url)}`}
         data-item-image="/images/{m.thumbnail}"
         data-item-name={m.title}
         >Add to cart <span class="ml-2 i jam:shopping-cart"></span></button

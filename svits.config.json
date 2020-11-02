@@ -17,7 +17,8 @@
     {
       "name": "menu",
       "path": "src/menu",
-      "url": "/menu/:category"
+      "url": "/menu/:category",
+      "params": { "category": "type" }
     }
   ],
   "hostname": "https://box-lunches.netlify.app",
