@@ -1,3 +1,5 @@
+"use strict"
+
 const fs = require('fs')
 const path = require('path')
 const cfg = require('./svits.config.json')
@@ -9,20 +11,19 @@ function init() {
     fs.rmdirSync(cPath, { recursive: true })
   }
   fs.mkdirSync(cPath)
-  var names = []
+  const names = []
   cfg.collections.forEach(c => {
     const p = path.resolve(__dirname, c.path)
-    fs.readdir(p, (err, dir) => {
-      if (err) {
-        return
-      }
+    names.push(c.name)
+    const urls = []
+    if (fs.existsSync(p)) {
+      const dir = fs.readdirSync(p)
       const md = !!c.markdown
-      names.push(c.name)
-      const urls = getUrls(c, dir, md)
-      const data = JSON.stringify(JSON.parse(JSON.stringify(urls)), null, 2)
-      fs.writeFileSync(path.join(cPath, `${c.name}.json`), data)
-      fs.writeFileSync(path.join(cPath, 'index.js'), getIndex(names))
-    })
+      urls.push(getUrls(c, dir, md))
+    }
+    const data = JSON.stringify(JSON.parse(JSON.stringify(urls)), null, 2)
+    fs.writeFileSync(path.join(cPath, `${c.name}.json`), data)
+    fs.writeFileSync(path.join(cPath, 'index.js'), getIndex(names))
   })
 }
 

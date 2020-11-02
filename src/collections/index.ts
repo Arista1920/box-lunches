@@ -37,7 +37,6 @@ export class Collection<T> {
     this.elements = this.elements.sort((a: any, b: any) => {
       let aa: any = a[orderOptions.field]
       let bb: any = b[orderOptions.field]
-      console.log(aa, bb)
       if (orderOptions.isDate) {
         aa = +new Date(a[orderOptions.field])
         bb = +new Date(b[orderOptions.field])
