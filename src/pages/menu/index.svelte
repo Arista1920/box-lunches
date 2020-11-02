@@ -14,12 +14,15 @@
 
   import { getCollection } from '../../collections'
 
+  const PAGESIZE = 3
   const meals = {}
   categories.map(c => {
-    meals[c.slug] = getCollection('menu', { field: 'date', order: 'desc', isDate: true })
+    const coll = getCollection('menu', { field: 'date', order: 'desc', isDate: true })
       .filter(m => m.type === c.slug)
-      .paginate(3, 1)
-      .elements
+    meals[c.slug] = {
+      total: coll.elements.length,
+      elements: coll.paginate(PAGESIZE, 1).elements
+    }
   })
 
   metatags.title = 'Our menu | ' + svitsConfig.name
@@ -46,9 +49,9 @@
         </a>
         <span class="w-full m-auto bg-green-500" style="height: 2px"></span>
         <div class="py-4 meals">
-          {#if meals[slug].length}
+          {#if meals[slug].total}
             <div class="flex flex-wrap pt-4 -m-4">
-              {#each meals[slug] as m, ii}
+              {#each meals[slug].elements as m, ii}
                 <div
                   class="w-full p-4 lg:w-1/3 sm:w-1/2"
                   in:fly={{y: -20, duration: 800, delay: (i + 1) * 300 + (300 + ii * 100)}}
@@ -56,15 +59,17 @@
                   <MealCard m={m} />
                 </div>
               {/each}
-              <a
-                title="View more meals from {name}"
-                href={$url('/menu/:category', { category: slug })}
-                class="flex items-center m-auto text-xl text-center text-gray-400 sm:text-2xl font-title"
-                ><span class="hover:underline">View more</span> <span class="i jam:chevron-down"></span></a
-              >
+              {#if meals[slug].total > PAGESIZE}
+                <a
+                  title="View more meals from {name}"
+                  href={$url('/menu/:category', { category: slug })}
+                  class="flex items-center py-2 m-auto text-xl text-center text-gray-400 sm:text-2xl font-title"
+                  ><span class="hover:underline">View more</span> <span class="i jam:chevron-down"></span></a
+                >
+              {/if}
             </div>
           {:else}
-            <p class="text-xl text-gray-400 sm:text-2xl font-title">Nothing here :(</p>
+            <p class="py-2 m-auto text-xl text-center text-gray-400 sm:text-2xl font-title">Empty</p>
           {/if}
         </div>
       </div>

@@ -76,3 +76,7 @@
 .i.jam\:youtube:before {
 	content: "\e00f";
 }
+
+.i.mdi\:cash:before {
+	content: "\e010";
+}
