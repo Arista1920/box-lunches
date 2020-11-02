@@ -18,6 +18,11 @@
 
   .e404 {
     text-align: center;
+    @apply text-gray-700;
+  }
+
+  :global(.dark .e404) {
+    @apply text-gray-400;
   }
 </style>
 
@@ -28,7 +33,7 @@
 <div class="flex w-full">
   <div class="py-16 m-auto overflow-hidden e404">
     {#if visible}
-      <div class="leading-none i jam:cactus huge" in:fly={{y: -20, duration: 800}}></div>
+      <div class="leading-none text-gray-500 i jam:cactus huge" in:fly={{y: -20, duration: 800}}></div>
     {/if}
     <div class="flex flex-col items-center big">
       Page not found.

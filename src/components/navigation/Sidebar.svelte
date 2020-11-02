@@ -48,12 +48,13 @@
         >
         <button
           title="Open cart"
-          class="flex items-center mx-4 focus:outline-none nav-link"
+          class="flex items-center mx-4 ml-2 focus:outline-none nav-link"
           class:nav-link={$loaded}
+          class:cursor-not-allowed={!$loaded}
           class:snipcart-checkout={$loaded}
         >
           <span
-            class="i jam:{$loaded ? 'shopping-cart' : 'hourglass text-gray-300 dark:text-gray-700 cursor-not-allowed'}"
+            class="i jam:{$loaded ? 'shopping-cart' : 'hourglass text-gray-400 dark:text-gray-700'}"
             class:mr-2={$loaded}
             ></span
           >

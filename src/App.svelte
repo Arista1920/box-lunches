@@ -48,7 +48,9 @@
     window.addEventListener('online', handleNetworkChange)
     window.addEventListener('offline', handleNetworkChange)
     document.addEventListener('snipcart.ready', () => {
-      $loaded = true
+      window.Snipcart.events.on('snipcart.initialized', (snipcartState) => {
+        $loaded = true
+      })
       window.Snipcart.store.subscribe(() => {
         $count = window.Snipcart.store.getState().cart.items.count
       })

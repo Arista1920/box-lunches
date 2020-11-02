@@ -1,7 +1,7 @@
 <footer class="py-8 text-gray-500 footer-bg">
   <div class="flex flex-col justify-between -m-4 md:flex-row content">
     <div class="m-4 section">
-      <h3 class="title">Follow us</h3>
+      <p class="title">Follow us</p>
       <div class="flex items-center mx-auto text-2xl">
         <a
           href="https://www.youtube.com/channel/UC15qcqtEc4H8I1sFQxVwobw"
@@ -27,12 +27,12 @@
       </div>
     </div>
     <div class="m-4 section">
-      <h3 class="title">Contact us</h3>
+      <p class="title">Contact us</p>
       <a href="mailto:info@box-lunches.com" class="mx-auto my-1 hover:underline">info@box-lunches.com</a>
       <a href="tel:+1-877-538-5888" class="mx-auto my-1 hover:underline">(206)258-3778</a>
     </div>
     <div class="m-4 section">
-      <h3 class="title">Address</h3>
+      <p class="title">Address</p>
       <p>1920 Dexter Ave. N Suite 100 Seattle, WA 98109</p>
     </div>
   </div>
