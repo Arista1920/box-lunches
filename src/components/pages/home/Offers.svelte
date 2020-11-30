@@ -6,7 +6,7 @@
 </script>
 
 <div class="py-12 content">
-  <Title first="We are delicious" second="What does we offers?"/>
+  <Title first="We are delicious" second="What do we offer?"/>
 </div>
 
 <div class="flex flex-col w-full py-12 pb-24 overflow-hidden text-xl font-light text-gray-500 lg:w-8/10 md:px-6 md:m-auto">
