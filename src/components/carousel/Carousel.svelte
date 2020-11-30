@@ -90,7 +90,7 @@
         {#if id === cur}
           <div
             in:hslide={transition_args}
-            out:hslide={transition_args}
+            out:hslide={{...transition_args, delay: 200}}
             class="shadow-2xl slide"
             style="
               background-image:
@@ -98,7 +98,7 @@
             "
           >
             <h1
-              in:fly={{y: 100, duration: 500, delay: 400}}
+              in:fly={{y: 100, duration: 500}}
               out:fly|local={{y: -100, duration: 200}}
               class="w-full p-6 m-auto text-5xl md:text-6xl lg:w-7/10 font-handwritten"
               >
@@ -215,6 +215,7 @@
     color: white;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
   }
 
   .controls {

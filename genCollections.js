@@ -52,7 +52,7 @@ const getUrls = (c, dir, md) => {
   const files = dir
     .filter(n => isFile(n, md))
     .map(d => ({
-      url: path.join(c.url, d).split(ext).join(''),
+      url: c.url ? path.join(c.url, d).split(ext).join('') : undefined,
       path: path.resolve(__dirname, c.path, d)
     }))
   files.forEach(f => {

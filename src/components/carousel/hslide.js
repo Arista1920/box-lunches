@@ -22,7 +22,7 @@ export function hslide(node, {
     easing,
     css: t =>
     `overflow: hidden;` +
-    `opacity: ${t * opacity};` +
+    // `opacity: ${t * opacity};` +
     `width: ${t * width}px;` +
     // `height: ${t * height}px;` +
     `padding-left: ${t * padding_left}px;` +

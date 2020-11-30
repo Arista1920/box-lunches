@@ -8,13 +8,13 @@
 >
   {#if first}
     <span
-      class="-mb-8 text-5xl leading-tight text-gray-300 select-none sm:-mb-12 -z-10 dark:opacity-25 sm:text-8xl dark:text-gray-500 font-handwritten"
+      class="-mb-3 text-5xl leading-none text-gray-300 select-none sm:-mb-8 -z-10 dark:opacity-25 sm:text-8xl dark:text-gray-500 font-handwritten"
       >{first}</span
     >
   {/if}
   {#if second}
     <span
-      class="text-4xl text-center text-gray-700 sm:text-6xl dark:text-gray-500 font-title"
+      class="text-4xl leading-none text-center text-gray-700 sm:text-6xl dark:text-gray-500 font-title"
       >{second}</span
     >
   {/if}

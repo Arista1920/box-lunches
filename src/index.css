@@ -7,7 +7,11 @@ html {
 	@apply transition-colors;
 }
 
-html.dark {
+.cursor-bg {
+	background: white;
+}
+
+html.dark, .dark .cursor-bg {
 	background: #222;
 }
 
@@ -30,4 +34,17 @@ pre, code {
 	.content {
 		width: 80%;
 	}
+}
+
+.animate {
+	--animate-x: 0;
+	--animate-y: 0;
+	--animate-r: 0;
+	--animate-time: 0.8s;
+	transition: transform var(--animate-time), opacity var(--animate-time);
+}
+
+.animate:not(.intersecting) {
+	opacity: 0;
+	transform: translate3d(var(--animate-x), var(--animate-y), 0) rotate(var(--animate-r));
 }
