@@ -8,8 +8,8 @@
 </script>
 
 <div class="py-12 content">
-  <V let:intersecting oneWay>
-    <div class="animate" class:intersecting style="--animate-y: 4rem">
+  <V oneWay>
+    <div class="animate" style="--animate-y: 4rem">
       <Title first="Arista Catering" second="Box Lunches Seattle"/>
       <p class="mt-12 mb-6 text-lg text-center text-gray-500 sm:text-xl">
       We welcome you to a delicious feast of exquisite dishes in Box Lunches. With a wide range of options to choose from, we guarantee you a sumptuous feast experience with our service!

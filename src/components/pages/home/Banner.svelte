@@ -5,9 +5,9 @@
 </script>
 
 <div class="mt-24 bg-gray-100 dark:bg-gray-800 dark:bg-opacity-0 duration-200">
-  <V class="flex flex-wrap py-12 -mx-4 content" let:intersecting oneWay>
+  <V class="flex flex-wrap py-12 -mx-4 content" oneWay>
     <PContainer
-      class="w-full lg:w-1/3 animate {intersecting ? 'intersecting' : ''} p-4 -mt-32"
+      class="w-full p-4 -mt-32 lg:w-1/3 animate"
       style="--animate-x: -3rem"
       let:offset
     >
@@ -20,7 +20,6 @@
     </PContainer>
     <div
       class="w-full p-4 text-justify text-gray-500 md:w-2/3 animate sm:text-xl"
-      class:intersecting
       style="--animate-y: 2rem"
     >
       <p class="mb-6">

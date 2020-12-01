@@ -58,8 +58,35 @@
   })
 </script>
 
+<style>
+  .intersecting-viewport {
+    --animate-x: 0;
+    --animate-y: 0;
+    --animate-r: 0;
+    --animate-s: 1;
+    --animate-s-x: var(--animate-s);
+    --animate-s-y: var(--animate-s);
+    --animate-time: 0.8s;
+  }
+  :global(.intersecting-viewport .animate),
+  :global(.intersecting-viewport.animate) {
+    transition: transform var(--animate-time), opacity var(--animate-time);
+  }
+
+  :global(.intersecting-viewport:not(.intersecting) .animate),
+  :global(.intersecting-viewport:not(.intersecting).animate) {
+    opacity: 0;
+    transform:
+      scale3d(var(--animate-s-x), var(--animate-s-y), 0)
+      translate3d(var(--animate-x), var(--animate-y), 0)
+      rotate(var(--animate-r));
+  }
+</style>
+
 <div
   class="{_class}"
+  class:intersecting-viewport={true}
+  class:intersecting
   style="{_style}"
   bind:this={container}
 >
