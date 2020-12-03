@@ -27,74 +27,79 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "menu-category" # Used in routes, e.g., /admin/collections/blog
-    label: "Menu Categories" # Used in the UI
+  - name: "pages" # Used in routes, e.g., /admin/collections/blog
+    label: "Pages" # Used in the UI
     files:
-      - label: "General menu" # Used in the UI
-        name: "general-menu" # Used in routes, e.g., /admin/collections/blog
+      - label: "Menu" # Used in the UI
+        name: "menu" # Used in routes, e.g., /admin/collections/blog
         editor:
           preview: false
-        file: "src/menu-categories/general-menu.json" # The path to the folder where the documents are stored
+        file: "src/content/pages/menu/index.json" # The path to the folder where the documents are stored
         create: true # Allow users to create new documents in this collection
         format: "json"
         fields: # The fields for each document, usually in front matter
           - {label: "Filterable", name: "filterable", widget: "hidden", default: false}
           - {label: "Description", name: "description", widget: "text"}
-      - label: "Breakfast Boxes" # Used in the UI
+      - label: "Breakfast Boxes Menu" # Used in the UI
         name: "breakfast-boxes" # Used in routes, e.g., /admin/collections/blog
         editor:
           preview: false
-        file: "src/menu-categories/breakfast-boxes.json" # The path to the folder where the documents are stored
+        file: "src/content/pages/menu/breakfast-boxes.json" # The path to the folder where the documents are stored
         create: true # Allow users to create new documents in this collection
         format: "json"
         fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Breakfast Boxes"}
           - {label: "Image", name: "image", widget: "image"}
           - {label: "Description", name: "description", widget: "text"}
-      - label: "Sandwich Box Lunches" # Used in the UI
+      - label: "Sandwich Box Lunches Menu" # Used in the UI
         name: "sandwich-box-lunches" # Used in routes, e.g., /admin/collections/blog
         editor:
           preview: false
-        file: "src/menu-categories/sandwich-box-lunches.json" # The path to the folder where the documents are stored
+        file: "src/content/pages/menu/sandwich-box-lunches.json" # The path to the folder where the documents are stored
         create: true # Allow users to create new documents in this collection
         format: "json"
         fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Sandwich Box Lunches"}
           - {label: "Image", name: "image", widget: "image"}
           - {label: "Description", name: "description", widget: "text"}
-      - label: "Box Meals" # Used in the UI
+      - label: "Box Meals Menu" # Used in the UI
         name: "box-meals" # Used in routes, e.g., /admin/collections/blog
         editor:
           preview: false
-        file: "src/menu-categories/box-meals.json" # The path to the folder where the documents are stored
+        file: "src/content/pages/menu/box-meals.json" # The path to the folder where the documents are stored
         create: true # Allow users to create new documents in this collection
         format: "json"
         fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Box Meals"}
           - {label: "Image", name: "image", widget: "image"}
           - {label: "Description", name: "description", widget: "text"}
-      - label: "Salad Box Lunches" # Used in the UI
+      - label: "Salad Box Lunches Menu" # Used in the UI
         name: "salad-box-lunches" # Used in routes, e.g., /admin/collections/blog
         editor:
           preview: false
-        file: "src/menu-categories/salad-box-lunches.json" # The path to the folder where the documents are stored
+        file: "src/content/pages/menu/salad-box-lunches.json" # The path to the folder where the documents are stored
         create: true # Allow users to create new documents in this collection
         format: "json"
         fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Salad Box Lunches"}
           - {label: "Image", name: "image", widget: "image"}
           - {label: "Description", name: "description", widget: "text"}
-      - label: "BBQ Box Meals" # Used in the UI
+      - label: "BBQ Box Meals Menu" # Used in the UI
         name: "bbq-box-meals" # Used in routes, e.g., /admin/collections/blog
         editor:
           preview: false
-        file: "src/menu-categories/bbq-box-meals.json" # The path to the folder where the documents are stored
+        file: "src/content/pages/menu/bbq-box-meals.json" # The path to the folder where the documents are stored
         create: true # Allow users to create new documents in this collection
         format: "json"
         fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "BBQ Box Meals"}
           - {label: "Image", name: "image", widget: "image"}
           - {label: "Description", name: "description", widget: "text"}
 
   - name: "Menu" # Used in routes, e.g., /admin/collections/blog
     editor:
       preview: false
-    label: "Menu meal" # Used in the UI
+    label: "Menu Dishes" # Used in the UI
     folder: "src/menu" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
