@@ -7,7 +7,8 @@ const regexesOnlineFirst = [
 const regexesOnlineOnly = [
   'localhost',
   'aws',
-  'kanye.rest'
+  'kanye.rest',
+  'netlify-cms',
 ]
 
 const regexesCacheFirst = [
