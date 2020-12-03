@@ -7,7 +7,7 @@
 
 <div class="flex flex-col w-full min-h-screen">
   <Navbar/>
-  <main class="flex justify-center flex-grow h-full duration-100" style="margin-top: {!$transparent ? $height : 0}px">
+  <main class="flex justify-center flex-grow h-full overflow-hidden" style="margin-top: {!$transparent ? $height : 0}px">
     <slot/>
   </main>
   <Footer/>

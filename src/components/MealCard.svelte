@@ -11,7 +11,7 @@
 >
   <Image src={m.thumbnail} alt={m.title} class="object-cover w-full h-64 rounded-tl-2xl rounded-tr-2xl" />
   <div class="flex flex-col w-full p-4">
-    <h2 class="text-2xl text-gray-700 dark:text-gray-500 font-title">{m.title}</h2>
+    <h2 class="text-2xl leading-tight text-gray-700 dark:text-gray-500 font-title">{m.title}</h2>
     <p class="flex items-center text-xl text-gray-700 dark:text-gray-500 font-title">
     <span class="mr-2 text-green-500 i mdi:cash"></span>
     <span>USD ${m.price}</span>

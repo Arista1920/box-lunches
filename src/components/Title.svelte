@@ -1,6 +1,8 @@
 <script>
   export let first
   export let second
+  export let line = true
+  export let lettering = false
 </script>
 
 <h1
@@ -15,8 +17,12 @@
   {#if second}
     <span
       class="text-4xl leading-none text-center text-gray-700 sm:text-6xl dark:text-gray-500 font-title"
+      class:font-title={!lettering}
+      class:font-handwritten={lettering}
       >{second}</span
     >
   {/if}
-  <span class="w-32 m-auto bg-green-500" style="height: 2px"></span></h1
+  {#if line}
+    <span class="w-32 m-auto bg-green-500" style="height: 2px"></span>
+  {/if}</h1
 >

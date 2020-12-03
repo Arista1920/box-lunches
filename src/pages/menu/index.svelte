@@ -31,6 +31,9 @@
 <div class="content">
   <div in:fly={{y: -10, duration: 500, delay: 100}}>
     <Title first="Our menu" second="Taste our meals"/>
+    <p class="mt-12 mb-6 text-lg text-center text-gray-500 sm:text-xl">
+    We welcome you to a delicious feast of exquisite dishes in Box Lunches. With a wide range of options to choose from, we guarantee you a sumptuous feast experience with our service!
+    </p>
     {#each categories as { slug, name }, i}
       <div
         class="flex flex-col my-12 text-gray-700 category dark:text-gray-500"
