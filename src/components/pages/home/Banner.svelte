@@ -19,7 +19,7 @@
       </div>
     </PContainer>
     <div
-      class="w-full p-4 text-justify text-gray-500 md:w-2/3 animate sm:text-xl"
+      class="w-full p-4 text-justify text-gray-500 lg:w-2/3 animate sm:text-xl"
       style="--animate-y: 2rem"
     >
       <p class="mb-6">

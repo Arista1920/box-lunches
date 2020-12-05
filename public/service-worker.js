@@ -9,6 +9,7 @@ const regexesOnlineOnly = [
   'aws',
   'kanye.rest',
   'netlify-cms',
+  'config.yml',
 ]
 
 const regexesCacheFirst = [

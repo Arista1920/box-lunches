@@ -12,7 +12,7 @@ export default [
     href: '/about',
   },
   {
-    titulo: 'Request quotes',
-    href: '/request',
+    titulo: 'Blog',
+    href: '/blog',
   },
 ]

@@ -46,7 +46,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-string-replace": "^1.1.2",
     "gulp-webp": "^4.0.1",
-    "mdsvex": "^0.8.8",
+    "mdsvex": "^0.8.9",
     "npm-run-all": "^4.1.5",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^12.0.1",

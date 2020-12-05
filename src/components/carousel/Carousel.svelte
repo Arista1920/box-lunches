@@ -23,6 +23,8 @@
   let cur = 0
   export let height = 'auto'
   export let waves
+  export let fixed = true
+  export let title = false
 
   $: dark = $preferences.darkMode
 
@@ -66,7 +68,7 @@
   onMount(() => {
     interval = () => setInterval(next, 5000)
   })
-  $: if (interval) interval();
+  $: if (interval && slides.length > 1) interval();
 
   /*const ARROW_LEFT = 37
   const ARROW_RIGHT = 39
@@ -92,6 +94,7 @@
             in:hslide={transition_args}
             out:hslide={{...transition_args, delay: 200}}
             class="shadow-2xl slide"
+            class:bg-fixed={fixed}
             style="
               background-image:
                 linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), {slide.bg}, linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7));
@@ -100,7 +103,10 @@
             <h1
               in:fly={{y: 100, duration: 500}}
               out:fly|local={{y: -100, duration: 200}}
-              class="w-full p-6 m-auto text-5xl md:text-6xl lg:w-7/10 font-handwritten"
+              class="w-full p-6 m-auto text-5xl md:text-6xl lg:w-7/10"
+              class:font-title={title}
+              class:font-bold={!title}
+              class:font-handwritten={!title}
               >
               {#each slide.content as char, i}
                 {#if char === '\n'}
@@ -210,12 +216,10 @@
     height: 100%;
     align-items: center;
     display: flex;
-    font-weight: bold;
     font-size: 2rem;
     color: white;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
   }
 
   .controls {

@@ -53,6 +53,8 @@
       }
     }
 
+    handler()
+
     window.addEventListener('scroll', handler)
     return () => window.removeEventListener('scroll', handler)
   })

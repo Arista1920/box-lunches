@@ -4,6 +4,12 @@
   import PContainer from '../../motion/ParallaxContainer.svelte'
   import PObject from '../../motion/ParallaxObject.svelte'
   import Tilt from '../../Tilt.svelte'
+  import { categories as c } from '../../../content/pages/menu'
+
+  const categories = Object.keys(c).map(k => ({
+    url: '/menu/'+k,
+    ...c[k],
+  }))
 </script>
 
 <style>
@@ -58,18 +64,18 @@
 
 <div class="flex flex-col w-full py-12 pb-24 text-xl font-light text-gray-500 lg:w-8/10 md:px-6 md:m-auto">
   <V class="flex w-full" oneWay>
-    <a class="flex flex-col w-9/10 lg:w-1/2 animate lg:pr-16 img-l first" style="--animate-time: 1s" href="/menu/breakfast-boxes">
+    <a class="flex flex-col w-9/10 lg:w-1/2 animate lg:pr-16 img-l first" style="--animate-time: 1s" href={categories[0].url}>
       <Tilt multiplier="5" clickable perspective="200">
         <PContainer let:offset>
           <div class="img">
-            <PObject class="w-full img-c" offset={offset} motion={false} style="height: 120%" scaleFactor={10}>
-              <div class="w-full h-full bg-center bg-cover" style="background-image: url(/images/uploads/palacinke.webp)">
+            <PObject class="w-full img-c" offset={offset} motion={false} style="height: 110%" scaleFactor={10}>
+              <div class="w-full h-full bg-center bg-cover" style='background-image: url("{categories[0].image}")'>
               </div>
             </PObject>
           </div>
         </PContainer>
         <div>
-          <Title line={false} second="Breakfast Boxes"></Title>
+          <Title line={false} second={categories[0].title}></Title>
         </div>
       </Tilt>
     </a>
@@ -77,18 +83,18 @@
   <div class="flex flex-wrap my-16 lg:my-24 lg:-mt-36">
     <V class="flex flex-col ml-auto w-9/10 lg:w-1/2 lg:ml-0 lg:pr-16 lg:mt-72" oneWay>
       <Tilt multiplier="5" clickable perspective="200">
-        <a href="/menu/sandwich-box-lunches">
+        <a href={categories[1].url}>
           <div class="animate img-r" style="--animate-time: 1s">
             <PContainer let:offset>
               <div class="img">
                 <PObject class="w-full img-c" offset={offset} motion={false} style="height: 120%" scaleFactor={10}>
-                  <div class="w-full h-full bg-center bg-cover" style="background-image: url(/images/uploads/palacinke.webp)">
+                  <div class="w-full h-full bg-center bg-cover" style='background-image: url("{categories[1].image}")'>
                   </div>
                 </PObject>
               </div>
               </PContainer>
               <div>
-                <Title line={false} second="Sandwich Box Lunches"></Title>
+                <Title line={false} second={categories[1].title}></Title>
               </div>
           </div>
         </a>
@@ -97,18 +103,18 @@
 
     <V class="flex flex-col mt-16 lg:mr-0 lg:ml-auto w-9/10 lg:w-1/2 lg:ml-0 lg:pl-16 lg:mt-0" oneWay>
       <Tilt multiplier="5" clickable perspective="200">
-        <a href="/menu/box-meals">
+        <a href={categories[2].url}>
           <div class="animate img-l" style="--animate-time: 1s">
             <PContainer let:offset>
               <div class="img">
                 <PObject class="w-full img-c" offset={offset} motion={false} style="height: 120%" scaleFactor={10}>
-                  <div class="w-full h-full bg-center bg-cover" style="background-image: url(/images/uploads/palacinke.webp)">
+                  <div class="w-full h-full bg-center bg-cover" style='background-image: url("{categories[2].image}")'>
                   </div>
                 </PObject>
               </div>
             </PContainer>
             <div>
-              <Title line={false} second="Box Meals"></Title>
+              <Title line={false} second={categories[2].title}></Title>
             </div>
           </div>
         </a>
@@ -119,18 +125,18 @@
   <div class="flex flex-wrap lg:my-24 lg:-mt-72">
     <V class="flex flex-col ml-auto w-9/10 lg:w-1/2 lg:ml-0 lg:pr-16 lg:mt-72" oneWay>
       <Tilt multiplier="5" clickable perspective="200">
-        <a href="/menu/salad-box-lunches">
+        <a href={categories[3].url}>
           <div class="animate img-r" style="--animate-time: 1s">
             <PContainer let:offset>
               <div class="img">
                 <PObject class="w-full img-c" offset={offset} motion={false} style="height: 120%" scaleFactor={10}>
-                  <div class="w-full h-full bg-center bg-cover" style="background-image: url(/images/uploads/palacinke.webp)">
+                  <div class="w-full h-full bg-center bg-cover" style='background-image: url("{categories[3].image}")'>
                   </div>
                 </PObject>
               </div>
             </PContainer>
             <div>
-              <Title line={false} second="Salad Box Lunches"></Title>
+              <Title line={false} second={categories[3].title}></Title>
             </div>
           </div>
         </a>
@@ -139,18 +145,18 @@
 
     <V class="flex flex-col mt-16 lg:mr-0 lg:ml-auto w-9/10 lg:w-1/2 lg:ml-0 lg:pl-16 lg:mt-0" oneWay>
       <Tilt multiplier="5" clickable perspective="200">
-        <a href="/menu/bbq-box-meals">
+        <a href={categories[4].url}>
           <div class="animate img-l" style="--animate-time: 1s">
             <PContainer let:offset>
               <div class="img">
                 <PObject class="w-full img-c" offset={offset} motion={false} style="height: 120%" scaleFactor={10}>
-                  <div class="w-full h-full bg-center bg-cover" style="background-image: url(/images/uploads/palacinke.webp)">
+                  <div class="w-full h-full bg-center bg-cover" style='background-image: url("{categories[4].image}")'>
                   </div>
                 </PObject>
               </div>
             </PContainer>
             <div>
-              <Title line={false} second="BBQ Box Meals"></Title>
+              <Title line={false} second={categories[4].title}></Title>
             </div>
           </div>
         </a>
