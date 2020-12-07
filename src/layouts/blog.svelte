@@ -40,7 +40,7 @@
         title="Go back"
         href="/blog"
         class="flex items-center justify-end w-full py-2 text-xl text-center text-gray-400 sm:text-2xl font-title"
-        ><span class="i jam:chevron-left"></span> <span class="hover:underline">View all</span></a
+        ><span class="i jam:chevron-left"></span> <span class="hover:underline">Back to blog</span></a
       >
       <Title first="Our blog" second={title}/>
     </div>
@@ -123,7 +123,7 @@
         </div>
       </div>
     </PC>
-    <div class="py-12 layout content">
+    <div class="w-full px-6 py-12 pt-16 mx-auto layout lg:px-0 lg:w-5/10">
       <slot/>
     </div>
   </div>

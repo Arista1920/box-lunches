@@ -3,7 +3,7 @@ id: "{{uuid}}"
 title: Why does food make us so happy?
 description: When we eat we release endorphins that give us satisfaction feelings
 date: 2020-12-06T15:22:32.160Z
-thumbnail: uploads/arepa.jpg
+thumbnail: uploads/blog/2020-12-06-why_does_food_make_us_so_happy/arepa.webp
 ---
 We usually have a bad face when we feel empty our stomach, and this seems an ancestral
 premise that accompanies us until the end. In the beginnings of history, mankind was only
@@ -15,11 +15,13 @@ man's eating plan, maybe we would still worry about going back to our caverns be
 hunters chase us in the night, instead of worrying about the traffic that It’ll slow us down a
 few minutes on the way to work.
 
-Food is vital to human existence. Arthur Schopenhauer, the famous pessimistic german
+Food is vital to human existence. **Arthur Schopenhauer**, the famous pessimistic german
 philosopher, claimed that a will impelled us to desire things. That will is the will to live, and
 if we do not please her, Schopenhauer predicts that you will suffer a lot.
 
-Needs are inherently linked to our behavior and biology. This is demonstrated in a
+![Arthur Schopenhauer](uploads/blog/2020-12-06-why_does_food_make_us_so_happy/arthur-schopenhauer-thumb.jpg "Arthur Schopenhauer")
+
+Needs are inherently linked to our **behavior** and **biology**. This is demonstrated in a
 resounding way when measuring brain activities of someone while eating: their endorphins
 and opioids shoot endlessly! That's what people call satisfaction and satiety.
 
@@ -37,9 +39,11 @@ has to go beyond all these advantages: the food is part of us, our identity and 
 living. Food is the friend who never abandons us and who accompanies us every day of our
 lives.
 
-In Box Lunches, with our food individually packaged, we seek that unconditional friend is
-always with you. The catering and delivery that we have in Seattle is so important for this
+In **Box Lunches,** with our food individually packaged, we seek that unconditional friend is
+always with you. The **catering** and **delivery** that we have in **Seattle** is so important for this
 reason: we take care of removing the bad face of employees, guests or participants of an
 event, bringing the smile of a great friend: our wonderful dishes!
 
-*“There is no love sincerer than the love of food”* - George Bernard Shaw
+> *“There is no love sincerer than the love of food”* - **George Bernard Shaw**
+>
+> ![George Bernard Shaw](uploads/blog/2020-12-06-why_does_food_make_us_so_happy/george-bernard-shaw.jpg "George Bernard Shaw")
