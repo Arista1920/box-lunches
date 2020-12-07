@@ -27,6 +27,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
     "@roxi/routify": "^2.7.4",
+    "dayjs": "^1.9.7",
     "netlify-cms-app": "^2.14.4",
     "nprogress": "^0.2.0",
     "svelte": "3.29.4",

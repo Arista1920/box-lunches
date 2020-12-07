@@ -17,6 +17,7 @@ let config = {
   // ],
   optimizeDeps: {
     exclude: ['@roxi/routify'],
+    include: ['@roxi/routify', 'dayjs/plugin/calendar'],
   },
 }
 

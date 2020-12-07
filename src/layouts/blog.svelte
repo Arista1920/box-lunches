@@ -12,6 +12,7 @@
   import V from '../components/IntersectingViewport.svelte'
   import Title from '../components/Title.svelte'
   import { preferences } from '../stores/preferences'
+  import { calendar } from '../lib/dayjs'
 
   $: dark = $preferences.darkMode
 
@@ -28,6 +29,7 @@
   export let title
   export let description
   export let thumbnail
+  export let date
 
   metatags.title = title + ' | ' + svitsConfig.name
   metatags.description = description || svitsConfig.description
@@ -123,17 +125,20 @@
         </div>
       </div>
     </PC>
-    <div class="w-full px-6 py-12 pt-16 mx-auto layout lg:px-0 lg:w-5/10">
-      <slot/>
+    <div class="px-6 py-12 text-gray-600 dark:text-gray-100">
+      <div class="w-full pb-12 mx-auto layout lg:px-0 lg:w-5/10">
+        <div class="w-full text-base">
+          {calendar(date)}
+        </div>
+      </div>
+      <div class="w-full mx-auto layout lg:px-0 lg:w-5/10">
+        <slot/>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-  :global(.layout) {
-    @apply text-gray-500;
-  }
-
   @screen sm {
     :global(.layout) {
       @apply text-xl;
@@ -154,6 +159,11 @@
 
   :global(.dark .layout h1, .dark .layout h2, .dark .layout h3) {
     color: white;
+  }
+
+  :global(.layout blockquote) {
+    border-left: 2px solid #0E9F6E;
+    @apply pl-6;
   }
 
   :global(.layout h1) {
