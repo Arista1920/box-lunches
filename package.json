@@ -13,9 +13,10 @@
     "gulp:prod": "gulp prod",
     "validate": "svelte-check && tsc --noEmit",
     "dev": "run-s build:collections gulp:dev dev:app",
-    "dev:app": "run-p dev:routify dev:svite",
+    "dev:app": "run-p cms-proxy dev:routify dev:svite",
     "dev:routify": "routify run",
     "dev:svite": "svite -ts",
+    "cms-proxy": "netlify-cms-proxy-server",
     "build": "run-s build:collections build:routify build:svite gulp:prod",
     "build:routify": "routify run -b",
     "build:svite": "NODE_ENV=production svite build -ts",
@@ -26,10 +27,11 @@
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
     "@roxi/routify": "^2.7.4",
+    "netlify-cms-app": "^2.14.4",
     "nprogress": "^0.2.0",
     "svelte": "3.29.4",
-    "svelte-hmr": "0.11.1",
     "svelte-class-transition": "^1.0.4",
+    "svelte-hmr": "0.11.1",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
@@ -47,6 +49,7 @@
     "gulp-string-replace": "^1.1.2",
     "gulp-webp": "^4.0.1",
     "mdsvex": "^0.8.9",
+    "netlify-cms-proxy-server": "^1.3.7",
     "npm-run-all": "^4.1.5",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^12.0.1",
