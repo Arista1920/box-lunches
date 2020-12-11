@@ -1,7 +1,7 @@
 ---
 id: "{{uuid}}"
 title: Why does food make us so happy?
-description: When we eat we release endorphins that give us satisfaction feelings
+description: When we eat we release endorphins that give us satisfaction feelingss
 date: 2020-12-06T15:22:32.160Z
 thumbnail: uploads/blog/2020-12-06-why_does_food_make_us_so_happy/arepa.webp
 ---
