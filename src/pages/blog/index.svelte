@@ -1,11 +1,10 @@
 <script>
   import { url as urll } from '@roxi/routify/runtime'
-  import { metatags } from '@roxi/routify'
+  import { metatags, prefetch } from '@roxi/routify'
   import { fly } from 'svelte/transition'
   import Title from '../../components/Title.svelte'
   import Image from '../../components/Image.svelte'
   import menu from '../../content/pages/menu'
-  import InfiniteScroller from 'svelte-infinite-scroll'
   import V from '../../components/IntersectingViewport.svelte'
   import { calendar } from '../../lib/dayjs'
   import svitsConfig from '../../../svits.config'
@@ -14,16 +13,39 @@
 
   const PAGESIZE = 1
   let page = 1
-
-  let posts = []
-  const total = getCollection('posts').elements.length
-
   let isAsc = false
 
-  $: posts = [
-    ...posts,
-    ...getCollection('posts', { field: 'date', order: isAsc ? 'asc' : 'desc', isDate: true }).paginate(PAGESIZE, page).elements
-  ]
+  const total = getCollection('posts').elements.length
+
+  const getPosts = () => getCollection(
+    'posts',
+    {
+      field: 'date',
+      order: isAsc ? 'asc' : 'desc',
+      isDate: true
+    })
+    .paginate(PAGESIZE, page)
+    .elements
+
+  let posts = getPosts()
+
+  const loadMore = () => () => {
+    if (posts.length > total ) {
+      return
+    }
+    page++
+    const newPosts = getPosts()
+    posts = [
+      ...posts,
+      ...newPosts
+    ]
+  }
+
+  const changeOrder = () => () => {
+    page = 1
+    isAsc = !isAsc
+    posts = getPosts()
+  }
 
   metatags.title = 'Our blog | ' + svitsConfig.name
 </script>
@@ -43,7 +65,7 @@
         class="category-link"
       >
         <span class="title">Articles</span>
-        <div class="flex items-center no-underline cursor-pointer" on:click={() => { posts = []; page = 1; isAsc = !isAsc }}>
+        <div class="flex items-center no-underline cursor-pointer" on:click={changeOrder}>
           <span class="text-sm sm:text-base hover:underline">Order - { isAsc ? 'Olders first' : 'Newers first' }</span>
           <span class="ml-2 text-xs i jam:chevron-down sm:text-sm transform duration-200" class:rotate-180={!isAsc}></span>
         </div>
@@ -55,7 +77,7 @@
             class="flex flex-wrap w-full my-4 overflow-hidden border shadow rounded-xl dark:border-gray-700"
             in:fly={{x: -20, duration: 500}}
           >
-            <div class="flex flex-col justify-between p-6 post-details md:w-1/2">
+            <div class="flex flex-col justify-between p-6 post-details sm:w-1/2">
               <div class="w-full">
                 <div class="mb-2 text-base text-gray-500">{calendar(date)}</div>
                 <h2 class="mb-2 text-2xl leading-none sm:text-4xl font-title">{title}</h2>
@@ -64,6 +86,7 @@
               <div class="w-full pt-6">
                 <a
                   href={$urll(url)}
+                  use:prefetch
                   title="View"
                   style="border-width: 2px"
                   class="flex items-center justify-center w-1/2 py-2 mx-auto mt-auto text-green-500 border border-green-500 duration-200 hover:bg-green-500 hover:text-white rounded-md font-title"
@@ -71,12 +94,12 @@
                 >
               </div>
             </div>
-            <div class="overflow-hidden post-image md:w-1/2">
+            <div class="overflow-hidden post-image sm:w-1/2">
               <Image class="object-cover w-full h-full" src={thumbnail} />
             </div>
           </div>
         {/each}
-        <V on:intersect={() => posts.length < total ? page++ : null} style="width: 100%; height: 0px;" />
+        <V on:intersect={loadMore} style="width: 100%; height: 0px;" />
       </div>
     </div>
   </div>
