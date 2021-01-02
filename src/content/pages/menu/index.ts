@@ -26,10 +26,6 @@ const categories = {
     title: 'Salad Box Lunches',
     ...salad,
   },
-  'bbq-box-meals': {
-    title: 'BBQ Box Meals',
-    ...bbq,
-  },
 }
 
 const getImg = (src: string) => {

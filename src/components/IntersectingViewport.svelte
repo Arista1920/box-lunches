@@ -4,7 +4,8 @@
 
   let _class = ''
   let _style = ''
-  export { _class as class, _style as style }
+  let _id = ''
+  export { _class as class, _style as style, _id as id }
 
   export let once = false
   export let oneWay = false
@@ -48,18 +49,13 @@
         )
       }
 
-      if (intersecting) {
-        distpatch('intersect', { offset: container.offsetTop })
-      }
-
       if (intersecting && once) {
         window.removeEventListener('scroll', handler)
       }
     }
 
-    handler()
-
     window.addEventListener('scroll', handler)
+    handler()
     return () => window.removeEventListener('scroll', handler)
   })
 </script>
@@ -68,10 +64,12 @@
   .intersecting-viewport {
     --animate-x: 0;
     --animate-y: 0;
-    --animate-r: 0;
     --animate-s: 1;
     --animate-s-x: var(--animate-s);
     --animate-s-y: var(--animate-s);
+    --animate-r: 0deg;
+    --animate-r-x: 0deg;
+    --animate-r-y: 0deg;
     --animate-time: 0.8s;
   }
   :global(.intersecting-viewport .animate),
@@ -81,11 +79,14 @@
 
   :global(.intersecting-viewport:not(.intersecting) .animate),
   :global(.intersecting-viewport:not(.intersecting).animate) {
+    transition: transform 0s 0s, opacity 0s 0s !important;
     opacity: 0;
     transform:
       scale3d(var(--animate-s-x), var(--animate-s-y), 0)
       translate3d(var(--animate-x), var(--animate-y), 0)
-      rotate(var(--animate-r));
+      rotateX(var(--animate-r-x))
+      rotateY(var(--animate-r-y))
+      rotateZ(var(--animate-r));
   }
 </style>
 
@@ -94,6 +95,7 @@
   class:intersecting-viewport={true}
   class:intersecting
   style="{_style}"
+  id="{_id}"
   bind:this={container}
 >
   <slot {intersecting}></slot>

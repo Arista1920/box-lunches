@@ -44,13 +44,17 @@
   }
 
   @screen lg {
-    .img-l {
+    .img-l, .img-r {
       @apply transform;
       @apply rotate-3;
     }
     .img-l.first, .img-r {
       @apply transform;
       @apply -rotate-3;
+    }
+    .img-r.last {
+      @apply transform;
+      @apply rotate-3;
     }
     .img-l {
       --animate-x: -3rem;
@@ -62,7 +66,25 @@
   <Title first="We are delicious" second="What do we offer?"/>
 </div>
 
-<div class="flex flex-col w-full py-12 pb-24 text-xl font-light text-gray-500 lg:w-8/10 md:px-6 md:m-auto">
+<div class="relative flex flex-col w-full py-12 pb-24 text-xl font-light text-gray-500 lg:w-8/10 md:px-6 md:m-auto">
+  <V class="absolute right-0 h-24 text-gray-700 fill-current dark:text-gray-500 rotate-12 transform w-2/10 -translate-x-4/10" oneWay>
+    <div class="animate" style="--animate-time: 1s">
+      {#await fetch('/images/arrow.svg') then res}
+        {#await res.text() then svg}
+          {@html svg}
+        {/await}
+      {/await}
+    </div>
+  </V>
+  <V class="absolute bottom-0 text-gray-700 fill-current dark:text-gray-500 -rotate-12 transform w-2/10 translate-x-4/10 -translate-y-52 scale-invert">
+    <div class="animate" style="--animate-time: 1s">
+      {#await fetch('/images/arrow.svg') then res}
+        {#await res.text() then svg}
+          {@html svg}
+        {/await}
+      {/await}
+    </div>
+  </V>
   <V class="flex w-full" oneWay>
     <a class="flex flex-col w-9/10 lg:w-1/2 animate lg:pr-16 img-l first" style="--animate-time: 1s" href={categories[0].url}>
       <Tilt multiplier="5" clickable perspective="200">
@@ -122,11 +144,11 @@
     </V>
   </div>
 
-  <div class="flex flex-wrap lg:my-24 lg:-mt-72">
-    <V class="flex flex-col ml-auto w-9/10 lg:w-1/2 lg:ml-0 lg:pr-16 lg:mt-72" oneWay>
+  <div class="flex flex-wrap w-full lg:my-24 lg:-mt-72">
+    <!--V class="flex flex-col ml-auto w-9/10 lg:w-1/2 lg:ml-0 lg:pr-16 lg:mt-72" oneWay>
       <Tilt multiplier="5" clickable perspective="200">
         <a href={categories[3].url}>
-          <div class="animate img-r" style="--animate-time: 1s">
+          <div class="animate img-r" style="- -animate-time: 1s">
             <PContainer let:offset>
               <div class="img">
                 <PObject class="w-full img-c" offset={offset} motion={false} style="height: 120%" scaleFactor={10}>
@@ -141,22 +163,24 @@
           </div>
         </a>
       </Tilt>
-    </V>
+      </V-->
+    <div class="hidden w-1/2 lg:block">
+    </div>
 
-    <V class="flex flex-col mt-16 lg:mr-0 lg:ml-auto w-9/10 lg:w-1/2 lg:ml-0 lg:pl-16 lg:mt-0" oneWay>
+    <V class="flex flex-col mt-16 ml-auto mr-0 w-9/10 lg:w-1/2 lg:ml-0 lg:pl-16 lg:mt-0" oneWay>
       <Tilt multiplier="5" clickable perspective="200">
-        <a href={categories[4].url}>
-          <div class="animate img-l" style="--animate-time: 1s">
+        <a href={categories[3].url}>
+          <div class="animate img-r last" style="--animate-time: 1s">
             <PContainer let:offset>
               <div class="img">
                 <PObject class="w-full img-c" offset={offset} motion={false} style="height: 120%" scaleFactor={10}>
-                  <div class="w-full h-full bg-center bg-cover" style='background-image: url("{categories[4].image}")'>
+                  <div class="w-full h-full bg-center bg-cover" style='background-image: url("{categories[3].image}")'>
                   </div>
                 </PObject>
               </div>
             </PContainer>
             <div>
-              <Title line={false} second={categories[4].title}></Title>
+              <Title line={false} second={categories[3].title}></Title>
             </div>
           </div>
         </a>
