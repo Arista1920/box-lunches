@@ -8,6 +8,21 @@ export interface OrderOptions {
   isDate: false
 }
 
+const matcher = (regexp: RegExp, fields?: string[]): (obj: Object) => boolean => {
+  return (obj) => {
+    const fields1 = fields || Object.keys(obj)
+    let found = false
+    fields1.forEach(key => {
+      if (!found) {
+        if ((typeof obj[key] == 'string') && regexp.exec(obj[key])) {
+          found = true
+        }
+      }
+    })
+    return found
+  }
+}
+
 export const getCollection = (
   collectionName: string,
   orderOptions?: OrderOptions,
@@ -30,6 +45,23 @@ export class Collection<T> {
 
   filter(callback: any): this {
     this.elements = this.elements.filter(callback)
+    return this
+  }
+
+  search(test: string | string[], fields?: string[]): this {
+    if (test == undefined || test == null) {
+      return this
+    }
+    if (typeof test == 'string') {
+      const regex = new RegExp("\\b" + test, 'i')
+      this.elements = this.filter(matcher(regex, fields)).elements
+    } else {
+      let found = []
+      test.forEach(t => {
+        const regex = new RegExp("\\b" + t + "\\b", 'i')
+        found = [...found, ...this.filter(matcher(regex, fields)).elements]
+      })
+    }
     return this
   }
 

@@ -19,8 +19,11 @@
 
   import { getCollection } from '../../../collections'
 
+  let search
+
   $: meals = getCollection('menu', { field: 'date', order: 'desc', isDate: true })
     .filter(m => m.type === $params.category)
+    .search(search, ['title'])
     .elements
 </script>
 
@@ -35,6 +38,14 @@
           ><span class="i jam:chevron-left"></span> <span class="hover:underline">View all</span></a
         >
         <Title first="Our menu" second={category}/>
+        <div class="flex w-full mt-12">
+          <input
+            type="text"
+            class="mx-auto text-xl text-center text-gray-600 placeholder-gray-300 bg-transparent border-b-2 transition-colors border-border-gray-300 sm:text-3xl font-title dark:border-gray-600 dark:focus:border-gray-500 focus:border-gray-600 focus:outline-none duration-200 dark:placeholder-gray-600 dark:text-gray-500"
+            bind:value={search}
+            placeholder="Search a meal here..."
+          >
+        </div>
       </div>
       <PC let:offset class="relative w-full overflow-hidden">
         <div
@@ -58,7 +69,7 @@
             ></div
           >
         </P>
-          <div class="w-full">
+        <div class="z-10 w-full">
           <div class="py-12 content lg:w-6/10" class:pb-32={meals.length}>
             <p
               class="text-xl text-center text-white sm:text-3xl font-title"
@@ -74,6 +85,7 @@
               <div
                 class="w-full p-4 lg:w-1/3 sm:w-1/2 xxl:w-1/4"
                 in:fly={{y: -20, duration: 800, delay: 300 + i * 100}}
+                out:fly|local={{y: -20, duration: 800}}
               >
                 <MealCard m={m} />
               </div>
