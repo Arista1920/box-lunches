@@ -41,7 +41,7 @@
 >
   <Sidebar bind:open={sidebar}/>
   <div class="flex items-center justify-between p-4 m-auto duration-200 {top ? 'lg:w-7/10' : 'lg:w-8/10'}" bind:this={navbar}>
-    <nav class="flex">
+    <nav class="flex items-center">
       <a href="/" title="Home" class="duration-100 rounded-xl">
         <Image
           src="logo.png"
@@ -52,6 +52,10 @@
           alt="logo"
         />
       </a>
+      <div class="flex flex-col ml-6 -my-1 text-gray-400 font-title">
+        <a href="mailto:info@box-lunches.com" class="my-1 hover:underline">info@box-lunches.com</a>
+        <a href="tel:+1-877-538-5888" class="my-1 hover:underline">(206)258-3778</a>
+      </div>
     </nav>
 
     <div class="lg:hidden">
