@@ -52,9 +52,9 @@
           alt="logo"
         />
       </a>
-      <div class="flex flex-col ml-6 -my-1 text-gray-400 font-title">
-        <a href="mailto:info@box-lunches.com" class="my-1 hover:underline">info@box-lunches.com</a>
-        <a href="tel:+1-877-538-5888" class="my-1 hover:underline">(206)258-3778</a>
+      <div class="flex flex-col ml-6 -my-1 text-sm text-gray-400 font-title sm:text-base">
+        <a href="mailto:info@box-lunches.com" class="mx-auto hover:underline">info@box-lunches.com</a>
+        <a href="tel:+1-877-538-5888" class="hover:underline">(206)258-3778</a>
       </div>
     </nav>
 
