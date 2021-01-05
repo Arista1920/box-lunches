@@ -34,7 +34,7 @@
 
   const clamp = (number, min, max) => Math.min(Math.max(number, min), max)
   const transition_args = {
-    duration: 1000,
+    duration: 800,
   }
 
   $beforeUrlChange(() => {
@@ -88,42 +88,44 @@
 <div class="overflow-hidden main">
   <div class="overflow-hidden outer-wrapper" style="height: {height}">
     <div class="relative overflow-hidden inner-wrapper">
-      {#each slides as slide, id}
-        {#if id === cur}
-          <div
-            in:hslide={transition_args}
-            out:hslide={{...transition_args, delay: 200}}
-            class="shadow-2xl slide"
-            class:bg-fixed={fixed}
-            style="
-              background-image:
-                linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), {slide.bg}, linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7));
-            "
-          >
-            <h1
-              in:fly={{y: 100, duration: 500}}
-              out:fly|local={{y: -100, duration: 200}}
-              class="w-full p-6 m-auto text-5xl md:text-6xl lg:w-7/10"
-              class:font-title={title}
-              class:font-bold={!title}
-              class:font-handwritten={!title}
-              >
-              {#each slide.content as char, i}
-                {#if char === '\n'}
-                  <br/>
-                {:else}
-                  <span
-                    in:fly={{
-                      y: 100,
-                      delay: i * (1000 / slide.content.length),
-                      duration: 1000
-                    }}
-                  >{char}</span>
-                {/if}
-              {/each}
-            </h1>
-          </div>
-        {/if}
+      {#each [slides[cur]] as slide, id (cur)}
+        <div
+          in:hslide={transition_args}
+          out:hslide={{...transition_args, delay: 200}}
+          class="shadow-2xl slide"
+          class:bg-fixed={fixed}
+          style="
+            background-image:
+              linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), {slide.bg}, linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7));
+          "
+        >
+        </div>
+        <div
+          class="absolute flex w-full h-full"
+          in:fly={{x: 20, duration: 500, delay: 800}}
+          out:fly|local={{x: -20, duration: 200}}
+        >
+          <h1
+            class="w-full p-6 m-auto text-5xl text-white md:text-6xl lg:w-7/10"
+            class:font-title={title}
+            class:font-bold={!title}
+            class:font-handwritten={!title}
+            >
+            {#each slide.content as char, i}
+              {#if char === '\n'}
+                <br/>
+              {:else}
+                <span
+                  in:fly={{
+                    y: 100,
+                    delay: i * (1000 / slide.content.length) + 800,
+                    duration: 1000
+                  }}
+                >{char}</span>
+              {/if}
+            {/each}
+          </h1>
+        </div>
       {/each}
       {#if waves}
         <div
