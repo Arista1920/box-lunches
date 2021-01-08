@@ -2,6 +2,7 @@
   import Navbar, { height, transparent } from '../components/navigation/Navbar.svelte'
   import Footer from '../components/Footer.svelte'
   import { isActive, isChangingPage } from '@roxi/routify/runtime'
+  import { afterPageLoad } from '@roxi/routify'
   import NProgress from 'nprogress'
 
   NProgress.configure({
@@ -14,18 +15,22 @@
   $: {
     if ($isChangingPage) {
       NProgress.start()
-    }
-
-    if (!$isChangingPage) {
+    } else {
       NProgress.done()
     }
   }
-  $: $transparent = $isActive('/index') || $isActive('/menu/:category/:meal')
+
+
+  let padded
+  $afterPageLoad(() => {
+    $transparent = $isActive('/index') || $isActive('/menu/:category/:meal')
+    padded = !$transparent
+  })
 </script>
 
 <div class="flex flex-col w-full min-h-screen">
   <Navbar/>
-  <main class="flex justify-center flex-grow w-full h-full overflow-hidden" style="margin-top: {!$transparent ? $height : 0}px">
+  <main class="flex justify-center flex-grow w-full h-full overflow-hidden" style="margin-top: {padded ? $height : 0}px">
     <slot/>
   </main>
   <Footer/>

@@ -166,7 +166,7 @@ const dev = gulp.series(
 exports.dev = dev
 
 const prod = gulp.series(
-  optimizeImages,
+  // optimizeImages,
   generateWebpsDist,
   generateFavicons,
   injectFavicons,

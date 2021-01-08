@@ -91,7 +91,7 @@
       {#each [slides[cur]] as slide, id (cur)}
         <div
           in:hslide={transition_args}
-          out:hslide={{...transition_args, delay: 200}}
+          out:hslide|local={{...transition_args, delay: 200}}
           class="shadow-2xl slide"
           class:bg-fixed={fixed}
           style="
@@ -101,12 +101,16 @@
         >
         </div>
         <div
-          class="absolute flex w-full h-full"
-          in:fly={{x: 20, duration: 500, delay: 800}}
-          out:fly|local={{x: -20, duration: 200}}
+          class="absolute flex flex-col items-center justify-center w-full h-full"
+          in:fly={{y: -20, duration: 500, delay: 800}}
+          out:fly|local={{y: 20, duration: 200}}
         >
+          {#if slide.img}
+            <img src={slide.img} alt="" class="mx-auto h-2/10">
+          {/if}
           <h1
-            class="w-full p-6 m-auto text-5xl text-white md:text-6xl lg:w-7/10"
+            class="w-full p-6 text-4xl leading-none text-white md:text-6xl lg:w-7/10"
+            class:text-center={slide.centered}
             class:font-title={title}
             class:font-bold={!title}
             class:font-handwritten={!title}
