@@ -61,15 +61,15 @@
         >
       </P>
       <div class="w-full">
-        <div class="py-24 content lg:w-6/10">
+        <div class="py-48 content lg:w-6/10">
           <p
             class="text-xl text-center text-white sm:text-3xl font-title"
             >{description}</p
           >
           <p
-              class="mt-12 text-xl text-center text-white sm:text-3xl font-title"
+              class="mt-12 text-xl text-center text-white sm:text-3xl font-title hidden"
               >- Share -</p>
-          <V class="flex items-center justify-center text-4xl text-white" once>
+          <V class="hidden flex items-center justify-center text-4xl text-white" once>
             <div class="mx-2 animate" style="--animate-y: -1rem; transition-delay: 500ms">
               <a
                 href="/blog"

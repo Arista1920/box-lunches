@@ -8,6 +8,17 @@
   import Banner from '../components/pages/home/Banner.svelte'
   import Offers from '../components/pages/home/Offers.svelte'
   import Title from '../components/Title.svelte'
+  import PostCard from '../components/PostCard.svelte'
+  import { getCollection } from '../collections'
+  const posts = getCollection(
+    'posts',
+    {
+      field: 'date',
+      order: 'asc',
+      isDate: true,
+    })
+    .paginate(3, 1)
+    .elements
 
   // import { getCollection } from '../collections'
 
@@ -143,16 +154,15 @@
     </div>
   </div>
 
-  <!--button class="snipcart-add-item"
-    data-item-id="starry-night"
-    data-item-price="79.99"
-    data-item-url="/paintings/starry-night"
-    data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
-    data-item-image="/assets/images/starry-night.jpg"
-    data-item-name="The Starry Night"
-    data-item-quantity=3>
-    Add to cart
-  </button-->
+  <div class="content py-12 mb-6">
+    <Title first="Blog" second="Read our last articles"/>
+    <div class="flex flex-col space-y-6 pt-8">
+      {#each posts as p}
+        <PostCard {...p}/>
+      {/each}
+    </div>
+  </div>
+
   <V oneWay class="w-full animate" style="--animate-y: 20%">
     <img src="/images/seattle.svg" alt="" class="w-full">
   </V>
